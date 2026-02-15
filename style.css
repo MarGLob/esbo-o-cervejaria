@@ -88,7 +88,7 @@
             width: 100%;
             /* Fallback para imagem de fundo se a 'cerveja-rio.PNG' não carregar na demo */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                        url('cerveja-rio.PNG'), 
+                        url('cerveja-rio.png'), 
                         url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
             background-size: cover;
             background-position: center;
@@ -350,4 +350,5 @@
             .features-list li {
                 justify-content: center;
             }
+
         }
