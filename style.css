@@ -1,26 +1,17 @@
 :root {
-            /* Estrutura, Rodapé, Bordas, Fundos */
             --cor-marrom-base: #bf8339; 
-            --cor-marrom-escuro: #8c5e24; /* Variação para contrastes */
-            
-            /* Botões de Chamada de Ação (CTA) */
+            --cor-marrom-escuro: #8c5e24;
             --cor-vermelho-cta: #f25757;
             --cor-vermelho-hover: #d14040;
-
-            /* Identidade do Produto (Luxo/História) */
             --cor-dourado: #deba5c;
-            
-            /* Detalhes de Refrescância */
             --cor-azul-escuro: #3dadd9;
             --cor-azul-claro: #bde3f2;
-
-            /* Cores Neutras */
             --cor-texto-claro: #f9f9f9;
             --cor-texto-escuro: #2c2c2c;
             --cor-fundo-suave: #fff8f0;
         }
 
-        /* --- 2. RESET E TIPOGRAFIA GERAL --- */
+        /* --- 2. RESET E GERAL --- */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +19,7 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif; /* Fonte para textos longos */
+            font-family: 'Lato', sans-serif;
             background-color: var(--cor-fundo-suave);
             color: var(--cor-texto-escuro);
             line-height: 1.6;
@@ -36,14 +27,14 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Cinzel', serif; /* Fonte com estilo histórico */
+            font-family: 'Cinzel', serif;
             color: var(--cor-marrom-base);
         }
 
         /* --- 3. CABEÇALHO (HEADER) --- */
         header {
             background-color: var(--cor-marrom-base);
-            padding: 1rem 2rem;
+            padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -53,46 +44,44 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
         }
 
         .logo {
             color: var(--cor-dourado);
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-decoration: none;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a {
             color: var(--cor-texto-claro);
             text-decoration: none;
             font-weight: 700;
-            transition: color 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
-        nav a:hover {
-            color: var(--cor-dourado);
-        }
-
-        /* --- 4. SEÇÃO HERO (PRINCIPAL) --- */
+        /* --- 4. SEÇÃO HERO (PRINCIPAL - SEM CAIXA) --- */
         .hero {
-            height: 100vh;
+            height: 100vh; /* Ocupa a tela inteira */
             width: 100%;
-            /* Fallback para imagem de fundo se a 'cerveja-rio.PNG' não carregar na demo */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                        url('cerveja-rio.png'), 
+            /* Fundo com imagem + overlay escuro sutil para o texto "saltar" */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
+                        url('cerveja-rio.PNG'), 
                         url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efeito parallax simples */
+            background-attachment: scroll; /* Scroll no mobile geralmente funciona melhor */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -102,111 +91,107 @@
         }
 
         .hero-content {
-            background: rgba(61, 41, 16, 0.85); /* Fundo escuro semitransparente */
-            padding: 3rem;
-            border: 2px solid var(--cor-dourado);
-            border-radius: 4px;
-            max-width: 800px;
-            margin: 0 20px;
-            backdrop-filter: blur(5px);
+            /* REMOVIDO: background, border, box-shadow */
+            padding: 1rem;
+            width: 100%;
+            max-width: 900px;
+            /* Texto centralizado e limpo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .hero h1 {
             color: var(--cor-dourado);
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 3rem; 
+            margin-bottom: 0.5rem;
+            /* Sombra forte para leitura sem a caixa de fundo */
+            text-shadow: 3px 3px 8px #000000;
+            line-height: 1.1;
         }
 
         .hero p {
             color: var(--cor-texto-claro);
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
             font-style: italic;
+            font-weight: 600;
+            /* Sombra forte para leitura */
+            text-shadow: 2px 2px 6px #000000;
         }
 
-        /* Estilo do Botão CTA */
+        /* Botão CTA Mobile-Friendly */
         .btn-cta {
             background-color: var(--cor-vermelho-cta);
             color: white;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: 18px 50px; /* Botão grande para dedo */
+            font-size: 1.1rem;
             border: none;
-            border-radius: 5px; /* Levemente arredondado */
+            border-radius: 50px; /* Mais arredondado = mais moderno */
             cursor: pointer;
             text-transform: uppercase;
             font-weight: bold;
-            transition: transform 0.2s, background-color 0.3s;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 0 #9e2a2a; /* Efeito 3D no botão */
-        }
-
-        .btn-cta:hover {
-            background-color: var(--cor-vermelho-hover);
-            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
         }
 
         .btn-cta:active {
-            transform: translateY(2px);
-            box-shadow: none;
+            transform: scale(0.95);
         }
 
-        /* --- 5. SEÇÃO HISTÓRIA (TIMELINE) --- */
+        /* --- 5. SEÇÃO HISTÓRIA --- */
         .history-section {
-            padding: 5rem 2rem;
+            padding: 4rem 1.5rem;
             background-color: var(--cor-fundo-suave);
-            position: relative;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--cor-marrom-base);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
         }
         
-        /* Detalhe decorativo abaixo do título */
         .section-title::after {
             content: '';
             display: block;
-            width: 100px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background-color: var(--cor-dourado);
             margin: 10px auto;
+            border-radius: 2px;
         }
 
         .timeline {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             position: relative;
         }
 
-        /* Linha central da timeline */
+        /* Linha da timeline */
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
-            width: 4px;
+            left: 15px; /* No mobile, a linha fica na esquerda */
+            width: 3px;
             height: 100%;
             background-color: var(--cor-marrom-base);
-            transform: translateX(-50%);
         }
 
         .story-card {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--cor-marrom-base);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+            margin-left: 40px; /* Espaço para a linha à esquerda */
             position: relative;
-            width: 45%;
-            /* Efeito de revelar ao rolar */
             opacity: 0; 
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
         }
 
         .story-card.visible {
@@ -214,141 +199,362 @@
             transform: translateY(0);
         }
 
-        /* Posicionamento alternado dos cards */
-        .story-card:nth-child(odd) {
-            margin-left: 0;
-            text-align: right;
-        }
-
-        .story-card:nth-child(even) {
-            margin-left: auto;
-            text-align: left;
-            border-left: none;
-            border-right: 5px solid var(--cor-marrom-base);
+        /* Ponto na linha do tempo */
+        .story-card::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 20px;
+            width: 15px;
+            height: 15px;
+            background-color: var(--cor-dourado);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--cor-marrom-base);
         }
 
         .year {
             font-family: 'Cinzel', serif;
             color: var(--cor-dourado);
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        /* --- BOTÃO EXPANDIR/LER MAIS --- */
+        .btn-expand {
+            background: none;
+            border: none;
+            color: var(--cor-marrom-escuro);
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            outline: none;
+        }
+
+        .btn-expand:hover {
+            color: var(--cor-vermelho-cta);
+        }
+
+        .arrow-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Área do texto oculto */
+        .story-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease;
+            opacity: 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Classe ativada via JavaScript */
+        .story-card.expanded .story-details {
+            max-height: 1000px; /* Altura suficiente para texto longo */
+            opacity: 1;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .story-card.expanded .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* --- 6. SEÇÃO PRODUTO (RENOVADA E PROFISSIONAL) --- */
+        .product-highlight {
+            background-color: var(--cor-marrom-base);
+            padding: 4rem 1.5rem;
+            color: white;
+            border-top: 5px solid var(--cor-dourado);
+        }
+
+        .product-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* Coluna da Imagem */
+        .product-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        /* Glow azul atrás da cerveja */
+        .image-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(189,227,242,0.6) 0%, rgba(61,173,217,0.1) 70%, transparent 100%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(20px);
+        }
+
+        .product-img {
+            max-height: 500px; /* Altura boa para garrafa */
+            max-width: 100%;
+            z-index: 1;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .product-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Coluna de Informações */
+        .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .badge-puro-malte {
+            background-color: var(--cor-dourado);
+            color: var(--cor-marrom-escuro);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            align-self: flex-start;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 2.8rem;
+            color: var(--cor-dourado);
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        .product-subtitle {
+            font-size: 1.2rem;
+            color: var(--cor-texto-claro);
+            opacity: 0.9;
+        }
+
+        /* Grid da Ficha Técnica */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 1rem 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem 0;
+        }
+
+        .tech-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tech-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--cor-azul-claro);
+            font-weight: bold;
+        }
+
+        .tech-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Cards de Detalhes (Sabor, Harmonização) */
+        .details-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .detail-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.2rem;
+            border-left: 3px solid var(--cor-dourado);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .detail-card h4 {
+            color: var(--cor-dourado);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-card p {
+            font-size: 0.95rem;
+            color: #f0f0f0;
+            margin: 0;
+        }
+
+        .allergy-alert {
+            font-size: 0.85rem;
+            color: var(--cor-azul-claro);
+            margin-top: 5px;
+            font-style: italic;
+            display: block;
+        }
+
+        /* Seção Onde Encontrar */
+        .where-to-find {
+            background: white;
+            color: var(--cor-texto-escuro);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .where-to-find h4 {
+            color: var(--cor-marrom-base);
             margin-bottom: 0.5rem;
         }
 
-        /* --- 6. SEÇÃO PRODUTO (REFRESCÂNCIA) --- */
-        .product-highlight {
+        .where-to-find .btn-secondary {
             background-color: var(--cor-marrom-base);
-            padding: 5rem 2rem;
             color: white;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 4rem;
-            /* Borda superior dourada */
-            border-top: 5px solid var(--cor-dourado);
-        }
-
-        .beer-mockup {
-            /* Círculo decorativo atrás da cerveja com as cores de refrescância */
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, var(--cor-azul-claro) 0%, var(--cor-azul-escuro) 70%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 30px rgba(61, 173, 217, 0.6);
-            position: relative;
-        }
-
-        /* Simulando a garrafa se não houver imagem */
-        .beer-img-placeholder {
-            font-size: 8rem; 
-            filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
-        }
-
-        .product-details {
-            max-width: 500px;
-        }
-
-        .product-details h2 {
-            color: var(--cor-dourado);
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag-refresh {
-            display: inline-block;
-            background-color: var(--cor-azul-escuro);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: none;
             font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--cor-azul-claro);
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
         }
 
-        .features-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .features-list li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-
-        .features-list li::before {
-            content: '🍺';
-            margin-right: 10px;
-        }
-
-        /* --- 7. RODAPÉ (FOOTER) --- */
+        /* --- 7. RODAPÉ --- */
         footer {
-            background-color: #2e1e0f; /* Marrom muito escuro para contraste */
+            background-color: #2e1e0f;
             color: var(--cor-marrom-base);
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 1.5rem;
             border-top: 5px solid var(--cor-dourado);
         }
 
-        footer p {
-            margin-bottom: 1rem;
-        }
+        /* --- 8. MEDIA QUERIES (AJUSTES FINAIS PARA PC) --- */
+        @media (min-width: 769px) {
+            /* Ajustes para telas grandes */
+            .hero {
+                background-attachment: fixed; /* Parallax apenas no PC */
+            }
 
-        .social-links a {
-            color: var(--cor-dourado);
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
+            .hero h1 { font-size: 4.5rem; }
+            .hero p { font-size: 1.8rem; }
 
-        /* --- 8. RESPONSIVIDADE --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            
-            .timeline::before { left: 20px; }
+            .timeline::before { left: 50%; transform: translateX(-50%); }
             
             .story-card {
+                width: 45%;
+                margin: 0;
+                margin-bottom: 3rem;
+            }
+
+            .story-card:nth-child(odd) {
+                margin-right: auto;
+                text-align: right;
+            }
+            .story-card:nth-child(odd)::before {
+                right: -40px;
+                left: auto;
+            }
+            /* Alinhamento do botão no card à direita */
+            .story-card:nth-child(odd) .btn-expand {
+                margin-left: auto; /* Joga o botão para a direita */
+            }
+
+            .story-card:nth-child(even) {
+                margin-left: auto;
+                text-align: left;
+            }
+            .story-card:nth-child(even)::before {
+                left: -40px;
+            }
+
+            /* Layout PC para Produto */
+            .product-container {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+            }
+
+            .product-image-container {
+                flex: 1;
+                justify-content: flex-end;
+                padding-right: 3rem;
+            }
+
+            .image-glow {
+                width: 400px;
+                height: 400px;
+            }
+
+            .product-info {
+                flex: 1.2;
+                align-items: flex-start;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr 1fr; /* Duas colunas para detalhes */
+            }
+            
+            /* Ingredientes ocupa duas colunas */
+            .detail-card:nth-child(3) {
+                grid-column: span 2;
+            }
+
+            .where-to-find {
+                text-align: left;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 width: 100%;
-                margin-left: 40px !important;
-                text-align: left !important;
-                border-left: 5px solid var(--cor-marrom-base) !important;
-                border-right: none !important;
             }
-
-            .product-highlight {
-                flex-direction: column;
-                text-align: center;
+            
+            .where-to-find .btn-secondary {
+                width: auto;
+                margin-top: 0;
             }
+            
+            .features-list { display: block; }
+        }
 
-            .features-list li {
-                justify-content: center;
+        /* AJUSTES PARA CELULARES MUITO PEQUENOS */
+        @media (max-width: 400px) {
+            .hero h1 { font-size: 2.5rem; }
+            .btn-cta { width: 100%; padding: 15px; }
+            nav ul { gap: 10px; }
+            nav a { font-size: 0.75rem; }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas muito pequenas */
+                gap: 20px;
             }
-
         }
