@@ -71,43 +71,52 @@
             text-transform: uppercase;
         }
 
-        /* --- 4. SEÇÃO HERO (PRINCIPAL - SEM CAIXA) --- */
+        /* --- 4. SEÇÃO HERO (PRINCIPAL - TOPO ESQUERDA) --- */
         .hero {
             height: 100vh; /* Ocupa a tela inteira */
             width: 100%;
-            /* Fundo com imagem + overlay escuro sutil para o texto "saltar" */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                        url('cerveja-rio.png'), 
-                        url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+            background-color: #2c1e0f;
+            
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
+                url('cerveja-rio.png?v=3'), 
+                url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+            
             background-size: cover;
             background-position: center;
-            background-attachment: scroll; /* Scroll no mobile geralmente funciona melhor */
+            background-attachment: scroll;
+            
+            /* --- MUDANÇA DE ALINHAMENTO --- */
             display: flex;
-            align-items: flex-start;
+            /* align-items: flex-start joga o conteúdo para o TOPO verticalmente */
+            align-items: flex-start; 
+            /* justify-content: flex-start joga o conteúdo para a ESQUERDA horizontalmente */
             justify-content: flex-start;
             text-align: left;
-            padding-top: 150px;           /* Espaço do topo (por causa do menu fixo) */
-            padding-left: 30px;           /* Espaço da esquerda */
+            
             position: relative;
             border-bottom: 5px solid var(--cor-marrom-base);
+            
+            /* Espaçamento interno para não colar no header ou na borda */
+            padding-top: 130px; /* Espaço para fugir do menu fixo */
+            padding-left: 20px; /* Margem esquerda */
+            padding-right: 20px; /* Margem direita de segurança */
         }
 
         .hero-content {
-            /* REMOVIDO: background, border, box-shadow */
-            padding: 1rem;
+            /* Removemos o max-width centralizado para ele respeitar a esquerda */
             width: 100%;
-            max-width: 900px;
-            /* Texto centralizado e limpo */
+            max-width: 800px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            /* Alinha o botão e textos à esquerda dentro do container */
+            align-items: flex-start; 
         }
 
         .hero h1 {
             color: var(--cor-dourado);
             font-size: 3rem; 
             margin-bottom: 0.5rem;
-            /* Sombra forte para leitura sem a caixa de fundo */
             text-shadow: 3px 3px 8px #000000;
             line-height: 1.1;
         }
@@ -118,13 +127,12 @@
             margin-bottom: 2.5rem;
             font-style: italic;
             font-weight: 600;
-            /* Sombra forte para leitura */
             text-shadow: 2px 2px 6px #000000;
         }
 
         /* Botão CTA Mobile-Friendly */
         .btn-cta {
-            background-color: var(--cor-marrom-escuro);
+            background-color: var(--cor-marrom-base);
             color: white;
             padding: 18px 50px; /* Botão grande para dedo */
             font-size: 1.1rem;
@@ -297,6 +305,7 @@
             justify-content: center;
             align-items: center;
             padding: 2rem 0;
+            min-height: 350px; /* Reserva espaço para evitar pulos */
         }
 
         /* Glow azul atrás da cerveja */
