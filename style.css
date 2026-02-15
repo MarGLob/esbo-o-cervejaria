@@ -77,7 +77,7 @@
             width: 100%;
             /* Fundo com imagem + overlay escuro sutil para o texto "saltar" */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                        url('cerveja-rio.PNG'), 
+                        url('cerveja-rio.png'), 
                         url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
             background-size: cover;
             background-position: center;
@@ -558,3 +558,4 @@
                 gap: 20px;
             }
         }
+
