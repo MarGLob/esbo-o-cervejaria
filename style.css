@@ -1,0 +1,353 @@
+:root {
+            /* Estrutura, Rodapé, Bordas, Fundos */
+            --cor-marrom-base: #bf8339; 
+            --cor-marrom-escuro: #8c5e24; /* Variação para contrastes */
+            
+            /* Botões de Chamada de Ação (CTA) */
+            --cor-vermelho-cta: #f25757;
+            --cor-vermelho-hover: #d14040;
+
+            /* Identidade do Produto (Luxo/História) */
+            --cor-dourado: #deba5c;
+            
+            /* Detalhes de Refrescância */
+            --cor-azul-escuro: #3dadd9;
+            --cor-azul-claro: #bde3f2;
+
+            /* Cores Neutras */
+            --cor-texto-claro: #f9f9f9;
+            --cor-texto-escuro: #2c2c2c;
+            --cor-fundo-suave: #fff8f0;
+        }
+
+        /* --- 2. RESET E TIPOGRAFIA GERAL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif; /* Fonte para textos longos */
+            background-color: var(--cor-fundo-suave);
+            color: var(--cor-texto-escuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif; /* Fonte com estilo histórico */
+            color: var(--cor-marrom-base);
+        }
+
+        /* --- 3. CABEÇALHO (HEADER) --- */
+        header {
+            background-color: var(--cor-marrom-base);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--cor-dourado);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            color: var(--cor-dourado);
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--cor-dourado);
+        }
+
+        /* --- 4. SEÇÃO HERO (PRINCIPAL) --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            /* Fallback para imagem de fundo se a 'cerveja-rio.PNG' não carregar na demo */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('cerveja-rio.PNG'), 
+                        url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito parallax simples */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid var(--cor-marrom-base);
+        }
+
+        .hero-content {
+            background: rgba(61, 41, 16, 0.85); /* Fundo escuro semitransparente */
+            padding: 3rem;
+            border: 2px solid var(--cor-dourado);
+            border-radius: 4px;
+            max-width: 800px;
+            margin: 0 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            color: var(--cor-dourado);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            color: var(--cor-texto-claro);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Estilo do Botão CTA */
+        .btn-cta {
+            background-color: var(--cor-vermelho-cta);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px; /* Levemente arredondado */
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 0 #9e2a2a; /* Efeito 3D no botão */
+        }
+
+        .btn-cta:hover {
+            background-color: var(--cor-vermelho-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        /* --- 5. SEÇÃO HISTÓRIA (TIMELINE) --- */
+        .history-section {
+            padding: 5rem 2rem;
+            background-color: var(--cor-fundo-suave);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--cor-marrom-base);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        /* Detalhe decorativo abaixo do título */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--cor-dourado);
+            margin: 10px auto;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Linha central da timeline */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: var(--cor-marrom-base);
+            transform: translateX(-50%);
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--cor-marrom-base);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            position: relative;
+            width: 45%;
+            /* Efeito de revelar ao rolar */
+            opacity: 0; 
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .story-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Posicionamento alternado dos cards */
+        .story-card:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .story-card:nth-child(even) {
+            margin-left: auto;
+            text-align: left;
+            border-left: none;
+            border-right: 5px solid var(--cor-marrom-base);
+        }
+
+        .year {
+            font-family: 'Cinzel', serif;
+            color: var(--cor-dourado);
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- 6. SEÇÃO PRODUTO (REFRESCÂNCIA) --- */
+        .product-highlight {
+            background-color: var(--cor-marrom-base);
+            padding: 5rem 2rem;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            /* Borda superior dourada */
+            border-top: 5px solid var(--cor-dourado);
+        }
+
+        .beer-mockup {
+            /* Círculo decorativo atrás da cerveja com as cores de refrescância */
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--cor-azul-claro) 0%, var(--cor-azul-escuro) 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(61, 173, 217, 0.6);
+            position: relative;
+        }
+
+        /* Simulando a garrafa se não houver imagem */
+        .beer-img-placeholder {
+            font-size: 8rem; 
+            filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+        }
+
+        .product-details {
+            max-width: 500px;
+        }
+
+        .product-details h2 {
+            color: var(--cor-dourado);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag-refresh {
+            display: inline-block;
+            background-color: var(--cor-azul-escuro);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--cor-azul-claro);
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .features-list li::before {
+            content: '🍺';
+            margin-right: 10px;
+        }
+
+        /* --- 7. RODAPÉ (FOOTER) --- */
+        footer {
+            background-color: #2e1e0f; /* Marrom muito escuro para contraste */
+            color: var(--cor-marrom-base);
+            text-align: center;
+            padding: 2rem;
+            border-top: 5px solid var(--cor-dourado);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--cor-dourado);
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* --- 8. RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            
+            .timeline::before { left: 20px; }
+            
+            .story-card {
+                width: 100%;
+                margin-left: 40px !important;
+                text-align: left !important;
+                border-left: 5px solid var(--cor-marrom-base) !important;
+                border-right: none !important;
+            }
+
+            .product-highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .features-list li {
+                justify-content: center;
+            }
+        }

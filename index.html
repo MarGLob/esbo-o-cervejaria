@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerveja Pilar - O Gosto do Nascimento</title>
+    <!-- Importando fontes elegantes para dar o tom histórico -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <a href="#" class="logo">Cerveja Pilar</a>
+        <nav>
+            <ul>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#cerveja">A Cerveja</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION (IMAGEM PRINCIPAL) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cerveja Pilar</h1>
+            <p>"O gosto do nosso nascimento."</p>
+            <a href="#historia" class="btn-cta">Embarque na História</a>
+        </div>
+    </section>
+
+    <!-- INTRODUÇÃO -->
+    <section style="text-align: center; padding: 4rem 2rem; background-color: var(--cor-marrom-base); color: white;">
+        <h2 style="color: var(--cor-dourado);">Uma Viagem Líquida no Tempo</h2>
+        <p style="max-width: 700px; margin: 1rem auto; font-size: 1.2rem;">
+            Mais do que uma cerveja, a Pilar é um portal para os séculos XVIII e XIX. 
+            Reviva as origens de Pitangui em cada gole refrescante.
+        </p>
+    </section>
+
+    <!-- LINHA DO TEMPO (HISTÓRIA) -->
+    <section id="historia" class="history-section">
+        <h2 class="section-title">A Origem de Pitangui (1700-1800)</h2>
+        
+        <div class="timeline">
+            <!-- Card 1 -->
+            <div class="story-card">
+                <span class="year">1709</span>
+                <h3>A Chegada dos Bandeirantes</h3>
+                <p>O início de tudo. Nestas terras, o ouro foi descoberto e a sétima vila do ouro começou a se formar. Um período de bravura e descoberta.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="story-card">
+                <span class="year">1715</span>
+                <h3>A Elevação à Vila</h3>
+                <p>Pitangui ganha status. As construções coloniais começam a desenhar o horizonte, e as primeiras tavernas servem os viajantes sedentos.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="story-card">
+                <span class="year">1780</span>
+                <h3>Revoltas e Identidade</h3>
+                <p>O espírito de liberdade começa a surgir. A terra se consolida não apenas pelo ouro, mas pela força de sua gente.</p>
+            </div>
+            
+            <!-- Card 4 (A Conexão com a Cerveja) -->
+            <div class="story-card" style="border-color: var(--cor-dourado);">
+                <span class="year">Hoje</span>
+                <h3>O Renascimento em Sabor</h3>
+                <p>A Cerveja Pilar resgata essa tradição secular, unindo a pureza das águas locais com maltes selecionados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTAQUE DO PRODUTO -->
+    <section id="cerveja" class="product-highlight">
+        <div class="beer-mockup">
+            <!-- Espaço para a foto da garrafa -->
+            <div class="beer-img-placeholder">🍺</div> 
+            <!-- Se tiver a imagem da garrafa recortada (png transparente), use a tag abaixo: -->
+            <!-- <img src="garrafa-pilar.png" alt="Garrafa Cerveja Pilar" style="max-height: 300px;"> -->
+        </div>
+
+        <div class="product-details">
+            <span class="tag-refresh">Refrescância Pura</span>
+            <h2>Pilar Premium</h2>
+            <p>Uma receita equilibrada, dourada como o ouro de Pitangui e refrescante como as águas da região. Perfeita para o clima tropical.</p>
+            
+            <ul class="features-list">
+                <li>Maltes selecionados e cor dourada intensa</li>
+                <li>Notas cítricas e refrescantes</li>
+                <li><strong>Ingredientes Naturais:</strong> Água, Malte e Lúpulo.</li>
+                </li>
+            </ul>
+
+            <button class="btn-cta">Onde Encontrar</button>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer id="contato">
+        <h3 style="color: var(--cor-dourado); margin-bottom: 1rem;">Cerveja Pilar</h3>
+        <p>Pitangui - Minas Gerais</p>
+        <p>Aprecie com moderação.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Whatsapp</a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #664d2b;">&copy; 2024 Cervejaria Pilar. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JAVASCRIPT PARA ANIMAÇÃO DE ROLAGEM -->
+    <script>
+        // Script simples para fazer os cards da história aparecerem quando rolar a tela
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.story-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.2 // Dispara quando 20% do elemento estiver visível
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
