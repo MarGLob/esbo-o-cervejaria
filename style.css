@@ -560,12 +560,18 @@
         /* AJUSTES PARA CELULARES MUITO PEQUENOS */
         @media (max-width: 400px) {
             .hero h1 { font-size: 2.5rem; }
-            .btn-cta { width: 100%; padding: 15px; }
+            
+            /* Mudei aqui: width: auto ou fit-content faz ele ficar do tamanho da frase */
+            .btn-cta { 
+                width: fit-content; 
+                padding: 15px 30px; /* Ajustei o preenchimento lateral */
+            }
+            
             nav ul { gap: 10px; }
             nav a { font-size: 0.75rem; }
             
             .tech-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas muito pequenas */
+                grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
         }
