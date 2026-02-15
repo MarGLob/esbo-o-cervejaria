@@ -12,7 +12,7 @@
 
     <!-- CABEÇALHO -->
     <header>
-        <a href="#" class="logo">Cerveja Pilar</a>
+        <a href="#" class="logo">Pilar</a>
         <nav>
             <ul>
                 <li><a href="#historia">História</a></li>
@@ -22,7 +22,7 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION (IMAGEM PRINCIPAL) -->
+    <!-- HERO SECTION (CLEAN - SEM CAIXA) -->
     <section class="hero">
         <div class="hero-content">
             <h1>Cerveja Pilar</h1>
@@ -32,105 +32,192 @@
     </section>
 
     <!-- INTRODUÇÃO -->
-    <section style="text-align: center; padding: 4rem 2rem; background-color: var(--cor-marrom-base); color: white;">
-        <h2 style="color: var(--cor-dourado);">Uma Viagem Líquida no Tempo</h2>
-        <p style="max-width: 700px; margin: 1rem auto; font-size: 1.2rem;">
-            Mais do que uma cerveja, a Pilar é um portal para os séculos XVIII e XIX. 
-            Reviva as origens de Pitangui em cada gole refrescante.
+    <section style="text-align: center; padding: 3rem 1.5rem; background-color: var(--cor-marrom-base); color: white;">
+        <h2 style="color: var(--cor-dourado); font-size: 1.8rem;">Uma Viagem Líquida</h2>
+        <p style="margin: 1rem auto; font-size: 1.1rem; max-width: 600px;">
+            Um portal para os séculos XVIII e XIX. 
+            Reviva as origens de Pitangui em cada gole.
         </p>
     </section>
 
     <!-- LINHA DO TEMPO (HISTÓRIA) -->
     <section id="historia" class="history-section">
-        <h2 class="section-title">A Origem de Pitangui (1700-1800)</h2>
+        <h2 class="section-title">A Origem (1700-1800)</h2>
         
         <div class="timeline">
             <!-- Card 1 -->
             <div class="story-card">
                 <span class="year">1709</span>
-                <h3>A Chegada dos Bandeirantes</h3>
-                <p>O início de tudo. Nestas terras, o ouro foi descoberto e a sétima vila do ouro começou a se formar. Um período de bravura e descoberta.</p>
+                <h3>Os Bandeirantes</h3>
+                <p>O início de tudo. A descoberta do ouro e o nascimento da sétima vila. Tempos de bravura.</p>
+                
+                <button class="btn-expand" onclick="toggleDetails(this)">
+                    Ler mais <span class="arrow-icon">▼</span>
+                </button>
+                <div class="story-details">
+                    <p>Foi neste ano que os conflitos pela posse das minas de ouro se intensificaram. Borba Gato liderou expedições e Pitangui começou a se desenhar no mapa não apenas como um ponto de extração, mas como um centro de resistência e formação cultural.</p>
+                </div>
             </div>
 
             <!-- Card 2 -->
             <div class="story-card">
                 <span class="year">1715</span>
-                <h3>A Elevação à Vila</h3>
-                <p>Pitangui ganha status. As construções coloniais começam a desenhar o horizonte, e as primeiras tavernas servem os viajantes sedentos.</p>
+                <h3>Vila de Pitangui</h3>
+                <p>Construções coloniais desenham o horizonte e as primeiras tavernas abrem suas portas.</p>
+                
+                <button class="btn-expand" onclick="toggleDetails(this)">
+                    Ler mais <span class="arrow-icon">▼</span>
+                </button>
+                <div class="story-details">
+                    <p>A elevação à categoria de Vila trouxe organização administrativa e, com ela, a prosperidade. O comércio floresceu, e as primeiras receitas locais de bebidas começaram a ser testadas pelos tropeiros que ali descansavam.</p>
+                </div>
             </div>
 
             <!-- Card 3 -->
             <div class="story-card">
                 <span class="year">1780</span>
-                <h3>Revoltas e Identidade</h3>
-                <p>O espírito de liberdade começa a surgir. A terra se consolida não apenas pelo ouro, mas pela força de sua gente.</p>
+                <h3>Liberdade</h3>
+                <p>O espírito de revolta surge. A terra se consolida pela força de sua gente.</p>
+                
+                <button class="btn-expand" onclick="toggleDetails(this)">
+                    Ler mais <span class="arrow-icon">▼</span>
+                </button>
+                <div class="story-details">
+                    <p>Décadas antes da Inconfidência Mineira estourar com força total, Pitangui já mostrava sua insatisfação com a Coroa. Esse espírito livre e independente é a essência que buscamos engarrafar na Pilar.</p>
+                </div>
             </div>
             
-            <!-- Card 4 (A Conexão com a Cerveja) -->
-            <div class="story-card" style="border-color: var(--cor-dourado);">
+            <!-- Card 4 -->
+            <div class="story-card" style="border: 2px solid var(--cor-dourado);">
                 <span class="year">Hoje</span>
-                <h3>O Renascimento em Sabor</h3>
-                <p>A Cerveja Pilar resgata essa tradição secular, unindo a pureza das águas locais com maltes selecionados.</p>
+                <h3>Renascimento</h3>
+                <p>A Cerveja Pilar resgata a tradição com águas locais e maltes puros.</p>
+                
+                <button class="btn-expand" onclick="toggleDetails(this)">
+                    Ler mais <span class="arrow-icon">▼</span>
+                </button>
+                <div class="story-details">
+                    <p>Utilizando processos modernos mas respeitando o tempo de maturação antigo, criamos uma Lager que é uma homenagem líquida à nossa história. Saúde ao passado e ao presente!</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- DESTAQUE DO PRODUTO -->
+    <!-- DESTAQUE DO PRODUTO (NOVO DESIGN PROFISSIONAL) -->
     <section id="cerveja" class="product-highlight">
-        <div class="beer-mockup">
-            <!-- Espaço para a foto da garrafa -->
-            <div class="beer-img-placeholder">🍺</div> 
-            <!-- Se tiver a imagem da garrafa recortada (png transparente), use a tag abaixo: -->
-            <!-- <img src="garrafa-pilar.png" alt="Garrafa Cerveja Pilar" style="max-height: 300px;"> -->
-        </div>
-
-        <div class="product-details">
-            <span class="tag-refresh">Refrescância Pura</span>
-            <h2>Pilar Premium</h2>
-            <p>Uma receita equilibrada, dourada como o ouro de Pitangui e refrescante como as águas da região. Perfeita para o clima tropical.</p>
+        <div class="product-container">
             
-            <ul class="features-list">
-                <li>Maltes selecionados e cor dourada intensa</li>
-                <li>Notas cítricas e refrescantes</li>
-                <li><strong>Ingredientes Naturais:</strong> Água, Malte e Lúpulo.</li>
-                </li>
-            </ul>
+            <!-- Lado Esquerdo: Imagem da Cerveja -->
+            <div class="product-image-container">
+                <div class="image-glow"></div>
+                <!-- Imagem Principal - Use sua foto aqui -->
+                <img src="cerveja-frente.jpeg" alt="Garrafa Cerveja Pilar Puro Malte" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <!-- Fallback se a imagem não carregar -->
+                <div class="beer-img-placeholder" style="display:none; font-size: 8rem; position: relative; z-index: 2;">🍺</div>
+            </div>
 
-            <button class="btn-cta">Onde Encontrar</button>
+            <!-- Lado Direito: Informações Técnicas -->
+            <div class="product-info">
+                <span class="badge-puro-malte">Puro Malte</span>
+                <h2 class="product-title">Pilar Pilsen</h2>
+                <p class="product-subtitle">Uma cerveja que carrega a história de Pitangui. Leve, dourada e equilibrada.</p>
+
+                <!-- Ficha Técnica (Grid) -->
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <span class="tech-label">Estilo</span>
+                        <span class="tech-value">Pilsen</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">ABV</span>
+                        <span class="tech-value">4.5%</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">IBU</span>
+                        <span class="tech-value">12</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">Temp.</span>
+                        <span class="tech-value">0-4°C</span>
+                    </div>
+                </div>
+
+                <!-- Detalhes do Produto -->
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4>👅 Notas de Sabor</h4>
+                        <p>Refrescante com notas sutis de cereais e um leve amargor equilibrado. Final seco e crisp, ideal para dias quentes.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h4>🥘 Harmonização</h4>
+                        <p>Perfeita com petiscos de boteco, queijos leves (minas, mussarela), frango grelhado, peixes e amendoim.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h4>🌾 Ingredientes & Alergênicos</h4>
+                        <p>Água, Malte de Cevada e Lúpulo.</p>
+                        <span class="allergy-alert">*Contém Cevada. Não contém lactose. Não contém ovos.</span>
+                    </div>
+
+                    <div class="detail-card">
+                        <h4>✨ Boas Práticas</h4>
+                        <p>Armazenar em local fresco, ao abrigo da luz e calor. Servir bem gelada para ressaltar a refrescância.</p>
+                    </div>
+                </div>
+
+                <!-- Onde Encontrar -->
+                <div class="where-to-find">
+                    <div>
+                        <h4>📍 Onde Encontrar?</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Disponível nos melhores empórios de Pitangui e região.</p>
+                    </div>
+                    <button class="btn-secondary">Ver Mapa</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- RODAPÉ -->
     <footer id="contato">
-        <h3 style="color: var(--cor-dourado); margin-bottom: 1rem;">Cerveja Pilar</h3>
-        <p>Pitangui - Minas Gerais</p>
-        <p>Aprecie com moderação.</p>
-        <div class="social-links">
+        <h3 style="color: var(--cor-dourado); margin-bottom: 0.5rem;">Cerveja Pilar</h3>
+        <p>Pitangui - MG</p>
+        <div class="social-links" style="margin-top: 1.5rem;">
             <a href="#">Instagram</a>
-            <a href="#">Whatsapp</a>
+            <a href="#">Facebook</a>
         </div>
-        <p style="font-size: 0.8rem; margin-top: 2rem; color: #664d2b;">&copy; 2024 Cervejaria Pilar. Todos os direitos reservados.</p>
+        <p style="font-size: 0.7rem; margin-top: 2rem; opacity: 0.6;">&copy; 2024 Cervejaria Pilar.</p>
     </footer>
 
-    <!-- JAVASCRIPT PARA ANIMAÇÃO DE ROLAGEM -->
+    <!-- SCRIPT DE ANIMAÇÃO -->
     <script>
-        // Script simples para fazer os cards da história aparecerem quando rolar a tela
+        // Função para expandir os detalhes da história
+        function toggleDetails(button) {
+            const card = button.closest('.story-card');
+            
+            // Alterna a classe 'expanded' no card pai
+            card.classList.toggle('expanded');
+            
+            // Verifica se está expandido para mudar o texto do botão
+            if (card.classList.contains('expanded')) {
+                button.innerHTML = 'Ler menos <span class="arrow-icon">▼</span>';
+            } else {
+                button.innerHTML = 'Ler mais <span class="arrow-icon">▼</span>';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.story-card');
-
+            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.2 // Dispara quando 20% do elemento estiver visível
-            });
+            }, { threshold: 0.15 });
 
-            cards.forEach(card => {
-                observer.observe(card);
-            });
+            cards.forEach(card => observer.observe(card));
         });
     </script>
 </body>
