@@ -44,63 +44,87 @@
     <section id="historia" class="history-section">
         <h2 class="section-title">A Origem (1700-1800)</h2>
         
-        <div class="timeline">
-            <!-- Card 1 -->
-            <div class="story-card">
-                <span class="year">1709</span>
-                <h3>Os Bandeirantes</h3>
-                <p>O início de tudo. A descoberta do ouro e o nascimento da sétima vila. Tempos de bravura.</p>
-                
-                <button class="btn-expand" onclick="toggleDetails(this)">
-                    Ler mais <span class="arrow-icon">▼</span>
-                </button>
-                <div class="story-details">
-                    <p>Foi neste ano que os conflitos pela posse das minas de ouro se intensificaram. Borba Gato liderou expedições e Pitangui começou a se desenhar no mapa não apenas como um ponto de extração, mas como um centro de resistência e formação cultural.</p>
-                </div>
+        <!-- PERSONAGEM DE ABERTURA (TOPO) -->
+        <div id="personagem-abrir" class="personagem-container" onclick="toggleHistoriaGeral()">
+            <div class="balao-fala">
+                <span>Psiu... Quer ouvir uma boa história sobre nossa origem? <strong>Toque aqui!</strong></span>
             </div>
-
-            <!-- Card 2 -->
-            <div class="story-card">
-                <span class="year">1715</span>
-                <h3>Vila de Pitangui</h3>
-                <p>Construções coloniais desenham o horizonte e as primeiras tavernas abrem suas portas.</p>
-                
-                <button class="btn-expand" onclick="toggleDetails(this)">
-                    Ler mais <span class="arrow-icon">▼</span>
-                </button>
-                <div class="story-details">
-                    <p>A elevação à categoria de Vila trouxe organização administrativa e, com ela, a prosperidade. O comércio floresceu, e as primeiras receitas locais de bebidas começaram a ser testadas pelos tropeiros que ali descansavam.</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="story-card">
-                <span class="year">1780</span>
-                <h3>Liberdade</h3>
-                <p>O espírito de revolta surge. A terra se consolida pela força de sua gente.</p>
-                
-                <button class="btn-expand" onclick="toggleDetails(this)">
-                    Ler mais <span class="arrow-icon">▼</span>
-                </button>
-                <div class="story-details">
-                    <p>Décadas antes da Inconfidência Mineira estourar com força total, Pitangui já mostrava sua insatisfação com a Coroa. Esse espírito livre e independente é a essência que buscamos engarrafar na Pilar.</p>
-                </div>
-            </div>
-            
-            <!-- Card 4 -->
-            <div class="story-card" style="border: 2px solid var(--cor-dourado);">
-                <span class="year">Hoje</span>
-                <h3>Renascimento</h3>
-                <p>A Cerveja Pilar resgata a tradição com águas locais e maltes puros.</p>
-                
-                <button class="btn-expand" onclick="toggleDetails(this)">
-                    Ler mais <span class="arrow-icon">▼</span>
-                </button>
-                <div class="story-details">
-                    <p>Utilizando processos modernos mas respeitando o tempo de maturação antigo, criamos uma Lager que é uma homenagem líquida à nossa história. Saúde ao passado e ao presente!</p>
-                </div>
-            </div>
+            <!-- Emoji do personagem. Você pode trocar por uma tag <img> com um mascote, bandeirante ou caneco depois 
+            <div class="personagem-img">🧔🏽‍♂️</div>-->
+            <img class="domingos" src="domingospng.png">
         </div>
+
+        <!-- CONTAINER QUE FICA ESCONDIDO -->
+        <div id="conteudo-historia" class="historia-oculta">
+            <div class="timeline">
+                <!-- Card 1 -->
+                <div class="story-card">
+                    <span class="year">1709</span>
+                    <h3>Os Bandeirantes</h3>
+                    <p>O início de tudo. A descoberta do ouro e o nascimento da sétima vila. Tempos de bravura.</p>
+                    
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Foi neste ano que os conflitos pela posse das minas de ouro se intensificaram. Borba Gato liderou expedições e Pitangui começou a se desenhar no mapa não apenas como um ponto de extração, mas como um centro de resistência e formação cultural.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="story-card">
+                    <span class="year">1715</span>
+                    <h3>Vila de Pitangui</h3>
+                    <p>Construções coloniais desenham o horizonte e as primeiras tavernas abrem suas portas.</p>
+                    
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>A elevação à categoria de Vila trouxe organização administrativa e, com ela, a prosperidade. O comércio floresceu, e as primeiras receitas locais de bebidas começaram a ser testadas pelos tropeiros que ali descansavam.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="story-card">
+                    <span class="year">1780</span>
+                    <h3>Liberdade</h3>
+                    <p>O espírito de revolta surge. A terra se consolida pela força de sua gente.</p>
+                    
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Décadas antes da Inconfidência Mineira estourar com força total, Pitangui já mostrava sua insatisfação com a Coroa. Esse espírito livre e independente é a essência que buscamos engarrafar na Pilar.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="story-card" style="border: 2px solid var(--cor-dourado);">
+                    <span class="year">Hoje</span>
+                    <h3>Renascimento</h3>
+                    <p>A Cerveja Pilar resgata a tradição com águas locais e maltes puros.</p>
+                    
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Utilizando processos modernos mas respeitando o tempo de maturação antigo, criamos uma Lager que é uma homenagem líquida à nossa história. Saúde ao passado e ao presente!</p>
+                    </div>
+                </div>
+            </div> <!-- FIM DA TIMELINE -->
+
+            <!-- PERSONAGEM DE FECHAMENTO (BASE) -->
+            <div class="personagem-container" onclick="toggleHistoriaGeral()" style="margin-top: 4rem;">
+                <div class="balao-fala" style="border-bottom-right-radius: 20px; border-bottom-left-radius: 0;">
+                    <span>História incrível, né? Para guardar o pergaminho, <strong>toque aqui.</strong></span>
+                </div>
+                <!-- Emoji invertido para ele 'olhar' para a história 
+                <div class="personagem-img" style="transform: scaleX(-1);">🧔🏽‍♂️</div> -->
+                <img class="domingos" src="domingospng.png">
+            </div>
+
+        </div> <!-- FIM DO CONTAINER OCULTO -->
     </section>
 
     <!-- DESTAQUE DO PRODUTO (NOVO DESIGN PROFISSIONAL) -->
@@ -111,7 +135,8 @@
             <div class="product-image-container">
                 <div class="image-glow"></div>
                 <!-- Imagem Principal - Use sua foto aqui -->
-                <img src="cerveja-frente.jpeg" alt="Garrafa Cerveja Pilar Puro Malte" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <!-- Use o nome em MINÚSCULO no GitHub e adicione o ?v=3 para forçar atualização no celular -->
+                <img src="cerveja-frente.jpg?v=3" alt="Garrafa Cerveja Pilar Puro Malte" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <!-- Fallback se a imagem não carregar -->
                 <div class="beer-img-placeholder" style="display:none; font-size: 8rem; position: relative; z-index: 2;">🍺</div>
             </div>
@@ -184,13 +209,35 @@
         <p>Pitangui - MG</p>
         <div class="social-links" style="margin-top: 1.5rem;">
             <a href="#">Instagram</a>
-            <a href="#">Whatsapp</a>
+            <a href="#">Facebook</a>
         </div>
         <p style="font-size: 0.7rem; margin-top: 2rem; opacity: 0.6;">&copy; 2024 Cervejaria Pilar.</p>
     </footer>
 
     <!-- SCRIPT DE ANIMAÇÃO -->
     <script>
+        // Função para esconder ou mostrar a história inteira
+        function toggleHistoriaGeral() {
+            const conteudo = document.getElementById('conteudo-historia');
+            const personagemAbrir = document.getElementById('personagem-abrir');
+            
+            if (conteudo.classList.contains('historia-oculta')) {
+                // Abre a história
+                conteudo.classList.remove('historia-oculta');
+                conteudo.classList.add('historia-visivel');
+                // Esconde o personagem do topo
+                personagemAbrir.style.display = 'none';
+            } else {
+                // Fecha a história
+                conteudo.classList.remove('historia-visivel');
+                conteudo.classList.add('historia-oculta');
+                // Mostra o personagem do topo novamente
+                personagemAbrir.style.display = 'flex';
+                // Leva a pessoa de volta pro título da história (melhora a experiência no celular)
+                document.getElementById('historia').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         // Função para expandir os detalhes da história
         function toggleDetails(button) {
             const card = button.closest('.story-card');
@@ -222,4 +269,3 @@
     </script>
 </body>
 </html>
-
