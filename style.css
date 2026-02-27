@@ -1,577 +1,731 @@
 :root {
-            --cor-marrom-base: #bf8339; 
-            --cor-marrom-escuro: #8c5e24;
-            --cor-vermelho-cta: #f25757;
-            --cor-vermelho-hover: #d14040;
-            --cor-dourado: #deba5c;
-            --cor-azul-escuro: #3dadd9;
-            --cor-azul-claro: #bde3f2;
-            --cor-texto-claro: #f9f9f9;
-            --cor-texto-escuro: #2c2c2c;
-            --cor-fundo-suave: #fff8f0;
+            --cor-marrom-base: #bf8339;     /* Cor principal da marca */
+            --cor-marrom-escuro: #8c5e24;   /* Usado para dar contraste e sombras */
+            --cor-vermelho-cta: #f25757;    /* Cor dos botões para chamar atenção */
+            --cor-vermelho-hover: #d14040;  /* Cor do botão quando passa o mouse por cima */
+            --cor-dourado: #deba5c;         /* Usado em títulos e detalhes luxuosos */
+            --cor-azul-escuro: #3dadd9;     /* Usado para remeter à água e refrescância */
+            --cor-azul-claro: #bde3f2;      /* Tom mais suave do azul para fundos/brilhos */
+            --cor-texto-claro: #f9f9f9;     /* Cor de texto quase branco para fundos escuros */
+            --cor-texto-escuro: #2c2c2c;    /* Cor de texto quase preto para fundos claros */
+            --cor-fundo-suave: #fff8f0;     /* Um branco meio "creme" para não cansar a vista */
         }
 
+        .domingos {
+            height: 100px;
+
+        }
         /* --- 2. RESET E GERAL --- */
+        /* O asterisco (*) seleciona TODOS os elementos do site. */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0;                      /* Remove as margens padrão do navegador */
+            padding: 0;                     /* Remove os espaçamentos padrão do navegador */
+            box-sizing: border-box;         /* Faz com que bordas e paddings não aumentem o tamanho total do elemento */
         }
 
+        /* Estilos aplicados no corpo do site (fundo geral) */
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--cor-fundo-suave);
-            color: var(--cor-texto-escuro);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Lato', sans-serif; /* Define a fonte padrão para os textos de leitura */
+            background-color: var(--cor-fundo-suave); /* Puxa a cor creme das variáveis */
+            color: var(--cor-texto-escuro);  /* Puxa a cor escura para o texto */
+            line-height: 1.6;                /* Espaçamento entre as linhas de texto (melhora a leitura) */
+            overflow-x: hidden;              /* Impede que o site role para os lados (evita barra de rolagem horizontal) */
         }
 
+        /* Estilos para todos os Títulos (h1 é o maior, h4 o menor) */
         h1, h2, h3, h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--cor-marrom-base);
+            font-family: 'Cinzel', serif;    /* Usa a fonte mais desenhada/histórica para os títulos */
+            color: var(--cor-marrom-base);   /* Títulos ficam na cor marrom padrão */
         }
 
-        /* --- 3. CABEÇALHO (HEADER) --- */
+        /* --- 3. CABEÇALHO (HEADER E MENU) --- */
         header {
-            background-color: var(--cor-marrom-base);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid var(--cor-dourado);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            background-color: var(--cor-marrom-base); /* Fundo marrom */
+            padding: 1rem;                   /* Espaçamento interno (gordurinha) do cabeçalho */
+            position: fixed;                 /* Faz o menu ficar grudado no topo da tela quando rola para baixo */
+            width: 100%;                     /* Faz o menu ocupar a largura toda da tela */
+            top: 0;                          /* Gruda no limite de cima */
+            z-index: 1000;                   /* Garante que o menu fique "por cima" de todas as outras imagens e textos */
+            border-bottom: 3px solid var(--cor-dourado); /* Linha dourada na base do menu */
+            display: flex;                   /* Ativa o modo flexível (organiza os itens lado a lado facilmente) */
+            justify-content: space-between;  /* Joga o logo para a esquerda e o menu para a direita */
+            align-items: center;             /* Alinha logo e menu bem no centro vertical da barra */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Cria uma sombra preta fraquinha embaixo do menu */
+            transition: all 0.3s ease;       /* Faz animações (se houver) acontecerem suavemente em 0.3 segundos */
         }
 
+        /* Estilo do Logo/Nome escrito no topo */
         .logo {
-            color: var(--cor-dourado);
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
+            color: var(--cor-dourado);       /* Cor da letra */
+            font-family: 'Cinzel', serif;    /* Fonte histórica */
+            font-size: 1.5rem;               /* Tamanho da letra */
+            font-weight: 700;                /* Deixa a letra em Negrito */
+            text-transform: uppercase;       /* Força a ficar TUDO EM MAIÚSCULO */
+            letter-spacing: 1px;             /* Espaço entre as letras (deixa mais elegante) */
+            text-decoration: none;           /* Remove aquele sublinhado chato de links */
         }
 
+        /* Estilo da lista de links no menu */
         nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
+            display: flex;                   /* Coloca os links um ao lado do outro */
+            list-style: none;                /* Remove as "bolinhas" padrão de listas do HTML */
+            gap: 15px;                       /* Espaço entre cada link do menu */
         }
 
+        /* Estilo de cada link do menu */
         nav a {
-            color: var(--cor-texto-claro);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
+            color: var(--cor-texto-claro);   /* Cor do texto branca/clara */
+            text-decoration: none;           /* Remove o sublinhado do link */
+            font-weight: 700;                /* Negrito */
+            font-size: 0.9rem;               /* Tamanho levemente menor que o normal */
+            text-transform: uppercase;       /* TUDO MAIÚSCULO */
         }
 
-        /* --- 4. SEÇÃO HERO (PRINCIPAL - TOPO ESQUERDA) --- */
+        /* --- 4. SEÇÃO HERO (A CAPA COM A FOTO GIGANTE) --- */
         .hero {
-            height: 100vh; /* Ocupa a tela inteira */
-            width: 100%;
-            background-color: #2c1e0f;
+            height: 100vh;                   /* 100vh significa 100% da altura da tela que você está usando (celular ou PC) */
+            width: 100%;                     /* Ocupa a largura toda */
+            background-color: #2c1e0f;       /* Cor de fundo caso a foto demore a carregar */
             
+            /* Essa parte carrega as imagens de fundo. A ordem importa! */
             background-image: 
+                /* 1. Película preta semitransparente em cima da foto para dar leitura no texto */
                 linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                url('cerveja-rio.png?v=3'), 
+                /* 2. FOTO PARA CELULAR (Esta é a padrão, pois pensamos no celular primeiro) */
+                url('cerveja-rio-mobile.jpg'), 
+                /* 3. Uma foto da internet caso a sua não carregue (Plano B) */
                 url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
             
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
+            background-size: cover;          /* Faz a imagem esticar/encolher para cobrir o espaço inteiro sem distorcer */
+            background-position: center;     /* Centraliza a imagem */
+            background-attachment: scroll;   /* Deixa a imagem rolar junto com a tela no celular */
             
-            /* --- MUDANÇA DE ALINHAMENTO --- */
-            display: flex;
-            /* align-items: flex-start joga o conteúdo para o TOPO verticalmente */
-            align-items: flex-start; 
-            /* justify-content: flex-start joga o conteúdo para a ESQUERDA horizontalmente */
-            justify-content: flex-start;
-            text-align: left;
+            display: flex;                   /* Ativa a organização flexível para o texto dentro da capa */
+            align-items: flex-start;         /* Joga o texto para o TOPO (início do eixo vertical) */
+            justify-content: flex-start;     /* Joga o texto para a ESQUERDA (início do eixo horizontal) */
+            text-align: left;                /* Alinha o texto em si para a esquerda */
             
-            position: relative;
-            border-bottom: 5px solid var(--cor-marrom-base);
+            position: relative;              /* Necessário para colocar elementos absolutos dentro dela (se precisar) */
+            border-bottom: 5px solid var(--cor-marrom-base); /* Borda grossa marrom embaixo da capa */
             
-            /* Espaçamento interno para não colar no header ou na borda */
-            padding-top: 130px; /* Espaço para fugir do menu fixo */
-            padding-left: 20px; /* Margem esquerda */
-            padding-right: 20px; /* Margem direita de segurança */
+            padding-top: 130px;              /* Empurra o texto pra baixo pra ele não ficar escondido debaixo do menu fixo! */
+            padding-left: 20px;              /* Empurra o texto um pouco pra direita pra não colar na borda da tela */
+            padding-right: 20px;             /* Margem de segurança na direita */
         }
 
+        /* Caixa invisível que segura o título e o botão na capa */
         .hero-content {
-            /* Removemos o max-width centralizado para ele respeitar a esquerda */
-            width: 100%;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            /* Alinha o botão e textos à esquerda dentro do container */
-            align-items: flex-start; 
+            width: 100%;                     /* Ocupa a largura disponível */
+            max-width: 800px;                /* Mas não deixa passar de 800 pixels para não ficar esticadão no PC */
+            display: flex;                   /* Organização flexível */
+            flex-direction: column;          /* Empilha o título, a frase e o botão um em cima do outro */
+            align-items: flex-start;         /* Alinha essa pilha toda na esquerda */
         }
 
+        /* Título gigante da capa ("Cerveja Pilar") */
         .hero h1 {
-            color: var(--cor-dourado);
-            font-size: 3rem; 
-            margin-bottom: 0.5rem;
-            text-shadow: 3px 3px 8px #000000;
-            line-height: 1.1;
+            color: var(--cor-dourado);       /* Letra dourada */
+            font-size: 3rem;                 /* Tamanho bem grande */
+            margin-bottom: 0.5rem;           /* Espaço embaixo do título */
+            text-shadow: 3px 3px 8px #000000;/* Cria uma sombra preta atrás do texto para ele ficar legível mesmo se a foto for clara */
+            line-height: 1.1;                /* Altura da linha um pouco mais justa */
         }
 
+        /* Frase embaixo do título da capa */
         .hero p {
-            color: var(--cor-texto-claro);
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            font-style: italic;
-            font-weight: 600;
-            text-shadow: 2px 2px 6px #000000;
+            color: var(--cor-texto-claro);   /* Letra branca */
+            font-size: 1.4rem;               /* Tamanho médio */
+            margin-bottom: 2.5rem;           /* Espaço grande embaixo da frase, antes do botão */
+            font-style: italic;              /* Deixa a letra deitada (itálica) */
+            font-weight: 600;                /* Deixa um pouco mais gordinha que o normal */
+            text-shadow: 2px 2px 6px #000000;/* Sombra preta para leitura */
         }
 
-        /* Botão CTA Mobile-Friendly */
+        /* Botões Vermelhos de Ação (Clique aqui, Comprar, etc) */
         .btn-cta {
-            background-color: var(--cor-marrom-base);
-            color: white;
-            padding: 18px 50px; /* Botão grande para dedo */
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px; /* Mais arredondado = mais moderno */
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            transition: transform 0.2s;
+            background-color: var(--cor-vermelho-cta); /* Fundo vermelho */
+            color: white;                    /* Letra branca */
+            padding: 18px 50px;              /* Espaçamento interno: 18px em cima/baixo, 50px nas laterais. Deixa ele gordinho para o dedo clicar fácil */
+            font-size: 1.1rem;               /* Tamanho da letra do botão */
+            border: none;                    /* Remove a borda padrão feia */
+            border-radius: 50px;             /* Arredonda as pontas do botão pra ficar moderno (formato de pílula) */
+            cursor: pointer;                 /* Faz o mouse virar a "mãozinha" de clique no PC */
+            text-transform: uppercase;       /* TUDO MAIÚSCULO */
+            font-weight: bold;               /* Negrito */
+            text-decoration: none;           /* Remove sublinhado se for um link */
+            display: inline-block;           /* Comportamento de bloco mas sem quebrar a linha toda */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Sombra embaixo do botão */
+            transition: transform 0.2s;      /* Faz a animação de clique durar 0.2 segundos */
         }
 
+        /* Efeito quando o usuário aperta (clica/toca) no botão vermelho */
         .btn-cta:active {
-            transform: scale(0.95);
+            transform: scale(0.95);          /* O botão dá uma "encolhida" de 5% pra simular que foi apertado pra dentro */
         }
 
-        /* --- 5. SEÇÃO HISTÓRIA --- */
+        /* --- 5. SEÇÃO DA HISTÓRIA (LINHA DO TEMPO) --- */
         .history-section {
-            padding: 4rem 1.5rem;
-            background-color: var(--cor-fundo-suave);
+            padding: 4rem 1.5rem;            /* Espaço gigante em cima/baixo, espacinho nas laterais */
+            background-color: var(--cor-fundo-suave); /* Fundo cor de creme */
         }
 
+        /* Título das seções (ex: "A Origem") */
         .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--cor-marrom-base);
-            margin-bottom: 2.5rem;
-            position: relative;
+            text-align: center;              /* Centraliza o texto */
+            font-size: 2rem;                 /* Tamanho grande */
+            color: var(--cor-marrom-base);   /* Cor marrom */
+            margin-bottom: 2.5rem;           /* Espaço embaixo do título */
+            position: relative;              /* Necessário para o "risquinho" dourado embaixo dele */
         }
         
+        /* Cria o risquinho decorativo dourado debaixo dos títulos */
         .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--cor-dourado);
-            margin: 10px auto;
-            border-radius: 2px;
+            content: '';                     /* Para o ::after funcionar, precisa existir esse 'content' mesmo que vazio */
+            display: block;                  /* Comporta-se como um bloco */
+            width: 60px;                     /* Largura do risquinho */
+            height: 4px;                     /* Espessura do risquinho */
+            background-color: var(--cor-dourado); /* Cor dourada */
+            margin: 10px auto;               /* O 'auto' nas laterais centraliza o risquinho */
+            border-radius: 2px;              /* Arredonda as pontinhas do risco */
         }
 
+        /* A estrutura inteira da linha do tempo */
         .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+            max-width: 800px;                /* Limita a largura pra não ficar feio em telas grandes */
+            margin: 0 auto;                  /* Centraliza a linha do tempo no meio da tela */
+            position: relative;              /* Necessário para colocar a linha marrom no fundo */
         }
 
-        /* Linha da timeline */
+        /* A linha marrom vertical em si que corta os cards */
         .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px; /* No mobile, a linha fica na esquerda */
-            width: 3px;
-            height: 100%;
-            background-color: var(--cor-marrom-base);
+            content: '';                     /* Obrigatorio */
+            position: absolute;              /* Posiciona independente dos cards */
+            left: 15px;                      /* Coloca a linha a 15px da margem esquerda (no mobile) */
+            width: 3px;                      /* Espessura da linha vertical */
+            height: 100%;                    /* Faz ela descer até o fim da caixa da timeline */
+            background-color: var(--cor-marrom-base); /* Cor marrom */
         }
 
+        /* A "Cartinha" (Card) onde a história é contada */
         .story-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 2.5rem;
-            margin-left: 40px; /* Espaço para a linha à esquerda */
-            position: relative;
-            opacity: 0; 
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
+            background: white;               /* Fundo branco pro texto ficar visível contra o creme */
+            padding: 1.5rem;                 /* Espaçamento interno */
+            border-radius: 12px;             /* Cantos arredondados */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Sombra bem de leve ao redor da cartinha */
+            margin-bottom: 2.5rem;           /* Espaço pra próxima cartinha debaixo */
+            margin-left: 40px;               /* Empurra a cartinha pra direita, pra dar espaço pra linha vertical! */
+            position: relative;              /* Necessário para a bolinha dourada */
+            opacity: 0;                      /* COMEÇA INVISÍVEL! (Pra animação de scroll funcionar) */
+            transform: translateY(30px);     /* COMEÇA 30px PRA BAIXO! (Pra ela 'subir' quando aparecer) */
+            transition: all 0.6s ease-out;   /* A animação de aparecer demora 0.6s */
         }
 
+        /* Classe que o JavaScript adiciona quando a cartinha aparece na tela */
         .story-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1;                      /* Fica 100% visível */
+            transform: translateY(0);        /* Volta pra posição original dela (sem estar 30px pra baixo) */
         }
 
-        /* Ponto na linha do tempo */
+        /* A bolinha na linha do tempo que liga na cartinha */
         .story-card::before {
-            content: '';
-            position: absolute;
-            left: -32px;
-            top: 20px;
-            width: 15px;
-            height: 15px;
-            background-color: var(--cor-dourado);
-            border: 3px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 2px var(--cor-marrom-base);
+            content: '';                     /* Obrigatorio */
+            position: absolute;              /* Posiciona independentemente */
+            left: -32px;                     /* Joga a bolinha pra fora da cartinha, pra esquerda (em cima da linha) */
+            top: 20px;                       /* Alinha com o topo da cartinha */
+            width: 15px;                     /* Largura da bolinha */
+            height: 15px;                    /* Altura da bolinha */
+            background-color: var(--cor-dourado); /* Cor de dentro da bolinha */
+            border: 3px solid white;         /* Bordinha branca ao redor da bolinha dourada */
+            border-radius: 50%;              /* O número 50% transforma um quadrado num círculo perfeito */
+            box-shadow: 0 0 0 2px var(--cor-marrom-base); /* Cria um anel marrom ao redor de tudo */
         }
 
+        /* O ano em cima da história (ex: 1709) */
         .year {
-            font-family: 'Cinzel', serif;
-            color: var(--cor-dourado);
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.2rem;
+            font-family: 'Cinzel', serif;    /* Fonte histórica */
+            color: var(--cor-dourado);       /* Cor dourada */
+            font-size: 1.8rem;               /* Tamanho grande */
+            font-weight: bold;               /* Negrito */
+            display: block;                  /* Faz o ano ficar sozinho na linha dele (quebra de linha automática) */
+            margin-bottom: 0.2rem;           /* Espaço bem pequeno embaixo do ano */
         }
 
-        /* --- BOTÃO EXPANDIR/LER MAIS --- */
+        /* --- BOTÃO EXPANDIR/LER MAIS DA HISTÓRIA --- */
         .btn-expand {
-            background: none;
-            border: none;
-            color: var(--cor-marrom-escuro);
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
-            padding: 5px 0;
-            outline: none;
+            background: none;                /* Tira o fundo cinza padrão de botões do HTML */
+            border: none;                    /* Tira a borda padrão */
+            color: var(--cor-marrom-escuro); /* Letra marrom escuro */
+            font-family: 'Lato', sans-serif; /* Fonte de texto normal */
+            font-weight: 700;                /* Negrito */
+            font-size: 0.9rem;               /* Tamanho pequeno */
+            cursor: pointer;                 /* Mãozinha de clique */
+            margin-top: 15px;                /* Empurra ele pra baixo do texto resumido */
+            display: flex;                   /* Organiza o texto e a setinha lado a lado */
+            align-items: center;             /* Alinha no centro vertical */
+            gap: 5px;                        /* Espaço entre o "Ler mais" e a setinha "▼" */
+            transition: color 0.3s;          /* Animação suave na troca de cor */
+            padding: 5px 0;                  /* Área de clique um pouco maior na vertical */
+            outline: none;                   /* Tira a linha azul de foco que alguns navegadores colocam */
         }
 
+        /* Quando passa o mouse no "Ler mais" */
         .btn-expand:hover {
-            color: var(--cor-vermelho-cta);
+            color: var(--cor-vermelho-cta);  /* Fica vermelho */
         }
 
+        /* A setinha "▼" do botão de expandir */
         .arrow-icon {
-            display: inline-block;
-            transition: transform 0.3s ease;
+            display: inline-block;           /* Necessário para conseguir rodar (transform: rotate) */
+            transition: transform 0.3s ease; /* Anima a rotação suavemente */
         }
 
-        /* Área do texto oculto */
+        /* Área do texto da história detalhada que FICA ESCONDIDA no início */
         .story-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, opacity 0.5s ease;
-            opacity: 0;
-            color: #555;
-            font-size: 0.95rem;
+            max-height: 0;                   /* Altura zero = escondido! */
+            overflow: hidden;                /* Tudo que tentar passar da altura zero é cortado/ocultado */
+            transition: max-height 0.5s ease-out, opacity 0.5s ease; /* Anima o ato de crescer (max-height) e aparecer (opacity) */
+            opacity: 0;                      /* Totalmente transparente */
+            color: #555;                     /* Cinza chumbo */
+            font-size: 0.95rem;              /* Tamanho de leitura */
         }
 
-        /* Classe ativada via JavaScript */
+        /* Esta regra é mágica: Quando o JavaScript adiciona a classe "expanded" na cartinha, 
+           o texto oculto ganha novas regras e aparece! */
         .story-card.expanded .story-details {
-            max-height: 1000px; /* Altura suficiente para texto longo */
-            opacity: 1;
-            margin-top: 15px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+            max-height: 1000px;              /* Um limite gigante só pra garantir que caiba todo o texto sem cortar */
+            opacity: 1;                      /* Fica totalmente visível */
+            margin-top: 15px;                /* Dá um respiro pro texto de cima */
+            border-top: 1px solid #eee;      /* Coloca uma linha cinza clarinha pra separar do resumo */
+            padding-top: 15px;               /* Dá um espaço abaixo da linha cinza */
         }
         
+        /* Gira a setinha "▼" para cima "▲" quando a caixa está aberta */
         .story-card.expanded .arrow-icon {
-            transform: rotate(180deg);
+            transform: rotate(180deg);       /* Rotação de 180 graus (fica de cabeça pra baixo) */
         }
 
-        /* --- 6. SEÇÃO PRODUTO (RENOVADA E PROFISSIONAL) --- */
+        /* --- ESTILOS DO PERSONAGEM E BALÃO (INTERAÇÃO) --- */
+        .personagem-container {
+            display: flex;                   /* Organiza balão e personagem lado a lado */
+            align-items: flex-end;           /* Alinha eles por baixo (para o personagem ficar no chão junto com a base do balão) */
+            justify-content: center;         /* Centraliza a dupla na tela */
+            gap: 15px;                       /* Espaço entre balão e personagem */
+            margin: 0 auto 2rem auto;        /* Centraliza a caixa inteira e dá margem embaixo */
+            max-width: 400px;                /* Limita a largura pra não esticar demais */
+            cursor: pointer;                 /* Cursor de mãozinha avisando que é clicável */
+            transition: transform 0.2s;      /* Animaçãozinha de clique */
+        }
+
+        /* Quando aperta no boneco/balão */
+        .personagem-container:active {
+            transform: scale(0.95);          /* Dá aquela encolhidinha clássica de botão pressionado */
+        }
+
+        /* O emoji/imagem do personagem */
+        .personagem-img {
+            font-size: 4rem;                 /* Fica grandão */
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); /* Sombra para dar profundidade de recorte */
+            animation: flutuar 3s ease-in-out infinite; /* Aplica a animação 'flutuar', que dura 3s e repete 'infinite' (pra sempre) */
+        }
+
+        /* Keyframes: Define o que a animação "flutuar" faz do começo ao fim (0% a 100%) */
+        @keyframes flutuar {
+            0% { transform: translateY(0px); }    /* Começa no chão normal */
+            50% { transform: translateY(-8px); }  /* Na metade do tempo, sobe 8 pixels */
+            100% { transform: translateY(0px); }  /* Volta pro chão no final */
+        }
+
+        /* Estilo do balãozinho de Quadrinhos (HQ) */
+        .balao-fala {
+            background-color: white;         /* Fundo branco */
+            border: 2px solid var(--cor-dourado); /* Borda dourada */
+            padding: 15px 20px;              /* Espaço interno pro texto não colar na borda */
+            border-radius: 20px;             /* Deixa ele bem redondinho */
+            border-bottom-right-radius: 0;   /* TIRA o arredondamento debaixo na direita: É ISSO que cria a "ponta" do balão! */
+            position: relative;              /* Referência para posicionamento */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra clarinha pra parecer 3D */
+            color: var(--cor-marrom-base);   /* Letra marrom */
+            font-weight: 600;                /* Letra mais grossinha */
+            font-size: 1rem;                 /* Tamanho padrão */
+            text-align: center;              /* Centraliza o texto do balão */
+            max-width: 250px;                /* Limita a largura pra não ficar um balão salsicha esticado */
+        }
+
+        /* Classe para esconder totalmente a história inteira */
+        .historia-oculta {
+            display: none;                   /* Some do mapa, não ocupa nem espaço na tela */
+            opacity: 0;                      /* Fica transparente (útil para combinar com animações depois) */
+        }
+
+        /* Classe que o Javascript põe pra fazer a história aparecer */
+        .historia-visivel {
+            display: block;                  /* Volta a ocupar espaço na tela normalmente */
+            animation: fadeIn 0.8s ease-in forwards; /* Aciona a animação de aparecer aos poucos */
+        }
+
+        /* Animação do bloco da história nascendo na tela */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); } /* Começa invisível e um pouco pra cima */
+            to { opacity: 1; transform: translateY(0); }       /* Termina visível e no lugar certo */
+        }
+
+        /* --- 6. SEÇÃO PRODUTO (VITRINE DA CERVEJA) --- */
         .product-highlight {
-            background-color: var(--cor-marrom-base);
-            padding: 4rem 1.5rem;
-            color: white;
-            border-top: 5px solid var(--cor-dourado);
+            background-color: var(--cor-marrom-base); /* A seção da cerveja tem fundo marrom! */
+            padding: 4rem 1.5rem;            /* Espaço gigante em cima/baixo */
+            color: white;                    /* Letras brancas por padrão aqui */
+            border-top: 5px solid var(--cor-dourado); /* Fio de ouro no topo separando das histórias */
         }
 
+        /* Caixa limitadora de largura pro conteúdo não ficar bizarro numa TV enorme */
         .product-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
+            max-width: 1100px;               /* Limite máximo bem largo */
+            margin: 0 auto;                  /* Centraliza a caixa na tela */
+            display: flex;                   /* Modo flexível (no PC, lado a lado. no mobile, empilhado via column abaixo) */
+            flex-direction: column;          /* Empilha: Foto em cima, Textos embaixo no celular */
+            gap: 3rem;                       /* Espaço buraco de 3rem entre a foto e os textos */
         }
 
-        /* Coluna da Imagem */
+        /* Caixa que segura a imagem da garrafa */
         .product-image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem 0;
-            min-height: 350px; /* Reserva espaço para evitar pulos */
+            position: relative;              /* Referência para o "brilho" azul que é absoluto */
+            display: flex;                   /* Usado para centralizar a imagem dentro dele */
+            justify-content: center;         /* Centraliza horizontalmente */
+            align-items: center;             /* Centraliza verticalmente */
+            padding: 2rem 0;                 /* Dá um espacinho em cima e embaixo */
+            min-height: 350px;               /* Guarda um espaço mínimo na tela mesmo se a foto demorar a carregar */
         }
 
-        /* Glow azul atrás da cerveja */
+        /* O "Glow" (brilho) azul atrás da garrafa de cerveja pra dar sensação de frescor */
         .image-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
+            position: absolute;              /* Fica solto atrás da garrafa */
+            width: 300px;                    /* Largura do círculo de luz */
+            height: 300px;                   /* Altura do círculo de luz */
+            /* Isso cria um degradê em formato de círculo: começa mais denso no meio e some nas bordas */
             background: radial-gradient(circle, rgba(189,227,242,0.6) 0%, rgba(61,173,217,0.1) 70%, transparent 100%);
-            border-radius: 50%;
-            z-index: 0;
-            filter: blur(20px);
+            border-radius: 50%;              /* Faz ser um círculo */
+            z-index: 0;                      /* Fica atrás de tudo (z-index baixo) */
+            filter: blur(20px);              /* Dá o efeito embaçado de luz! */
         }
 
+        /* A foto da garrafa em si */
         .product-img {
-            max-height: 500px; /* Altura boa para garrafa */
-            max-width: 100%;
-            z-index: 1;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
-            transition: transform 0.3s ease;
+            max-height: 500px;               /* Não deixa a garrafa ficar maior que 500px de altura */
+            max-width: 100%;                 /* Impede que ela saia da tela se for muito larga */
+            z-index: 1;                      /* Fica na FRENTE da luz (image-glow) */
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); /* Dá uma sombra na garrafa, igual estúdio de foto */
+            transition: transform 0.3s ease; /* Animação pra quando o mouse passar por cima */
         }
 
+        /* Zoom de leve quando o mouse passa na garrafa */
         .product-img:hover {
-            transform: scale(1.02);
+            transform: scale(1.02);          /* Cresce 2% */
         }
 
-        /* Coluna de Informações */
+        /* Caixa que segura as infos textuais da cerveja (lado direito no PC) */
         .product-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            flex: 1;                         /* Diz pro flexbox: "ocupe o espaço que sobrar" */
+            display: flex;                   /* Pra empilhar as coisas facilmente */
+            flex-direction: column;          /* Empilha verticalmente os textos */
+            gap: 1.5rem;                     /* Espaço entre cada bloquinho (título, ficha técnica, ingredientes) */
         }
 
+        /* O selinho amarelo escrito "Puro Malte" */
         .badge-puro-malte {
-            background-color: var(--cor-dourado);
-            color: var(--cor-marrom-escuro);
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            padding: 5px 15px;
-            border-radius: 4px;
-            display: inline-block;
-            align-self: flex-start;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            background-color: var(--cor-dourado); /* Fundo dourado */
+            color: var(--cor-marrom-escuro); /* Letra escura */
+            font-family: 'Cinzel', serif;    /* Fonte histórica */
+            font-weight: 700;                /* Negrito */
+            padding: 5px 15px;               /* Gordurinha do selo */
+            border-radius: 4px;              /* Bordas levemente curvas */
+            display: inline-block;           /* Bloco compacto */
+            align-self: flex-start;          /* Garante que ele fique alinhado à esquerda e não estique! */
+            text-transform: uppercase;       /* MAIÚSCULO */
+            font-size: 0.85rem;              /* Letra pequena */
+            letter-spacing: 1px;             /* Espaço entre letras */
         }
 
+        /* Título "Pilar Pilsen" */
         .product-title {
-            font-size: 2.8rem;
-            color: var(--cor-dourado);
-            line-height: 1.1;
-            margin: 0;
+            font-size: 2.8rem;               /* Gigante */
+            color: var(--cor-dourado);       /* Dourado */
+            line-height: 1.1;                /* Linha apertadinha */
+            margin: 0;                       /* Sem margem externa */
         }
 
+        /* Textinho descritivo debaixo do nome da cerveja */
         .product-subtitle {
-            font-size: 1.2rem;
-            color: var(--cor-texto-claro);
-            opacity: 0.9;
+            font-size: 1.2rem;               /* Tamanho médio */
+            color: var(--cor-texto-claro);   /* Letra branca */
+            opacity: 0.9;                    /* 90% de visibilidade (deixa o branco um pouco mais suave e chique) */
         }
 
-        /* Grid da Ficha Técnica */
+        /* --- Ficha Técnica (Os 4 quadradinhos com ABV, IBU, etc) --- */
         .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin: 1rem 0;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding: 1rem 0;
+            display: grid;                   /* Ativa a "Grade" (Grid). Perfeito pra fazer coluninhas precisas */
+            grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas exatamente do mesmo tamanho (1 Fração cada) */
+            gap: 10px;                       /* Espaço entre as colunas */
+            margin: 1rem 0;                  /* Espaço em cima/baixo da grade */
+            border-top: 1px solid rgba(255,255,255,0.2); /* Linha divisória fina em cima */
+            border-bottom: 1px solid rgba(255,255,255,0.2); /* Linha divisória fina embaixo */
+            padding: 1rem 0;                 /* Espaço pra não grudar nas linhas divisórias */
         }
 
+        /* Cada itenzinho da ficha (ex: a caixinha do "Estilo: Pilsen") */
         .tech-item {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
+            text-align: center;              /* Centraliza texto do item */
+            display: flex;                   
+            flex-direction: column;          /* Empilha o Rótulo em cima do Valor */
         }
 
+        /* O Rótulo da ficha técnica (As palavras "Estilo", "ABV") */
         .tech-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--cor-azul-claro);
-            font-weight: bold;
+            font-size: 0.75rem;              /* Letra miudinha */
+            text-transform: uppercase;       /* Maiúscula */
+            color: var(--cor-azul-claro);    /* Azuzinho pra dar um destaque tecnológico/refresh */
+            font-weight: bold;               /* Negrito */
         }
 
+        /* O Valor da ficha técnica (Ex: "Pilsen", "4.5%") */
         .tech-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: white;
+            font-size: 1.1rem;               /* Letra grande e principal */
+            font-weight: 700;                /* Super negrito */
+            color: white;                    /* Branco total */
         }
 
-        /* Cards de Detalhes (Sabor, Harmonização) */
+        /* --- Grade de Detalhes (Cards pretos com Ingredientes, Harmonização) --- */
         .details-grid {
-            display: grid;
-            gap: 1.5rem;
+            display: grid;                   /* Ativa grade novamente */
+            gap: 1.5rem;                     /* Espaço entre os cards pretos */
+            /* Como não declarei 'grid-template-columns' aqui, no celular ele fica com 1 coluna padrão (um embaixo do outro) */
         }
 
+        /* Cada cardzinho escuro com infos */
         .detail-card {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.2rem;
-            border-left: 3px solid var(--cor-dourado);
-            border-radius: 0 8px 8px 0;
+            background: rgba(0, 0, 0, 0.2);  /* Fundo preto bem transparente (20%) */
+            padding: 1.2rem;                 /* Espaçamento interno */
+            border-left: 3px solid var(--cor-dourado); /* Aquela listra lateral dourada que dá um toque de design! */
+            border-radius: 0 8px 8px 0;      /* Arredonda só os cantos da DIREITA (a esquerda fica reta pra colar na listra dourada) */
         }
 
+        /* Titulozinhos dos cards pretos (ex: "👅 Notas de Sabor") */
         .detail-card h4 {
-            color: var(--cor-dourado);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--cor-dourado);       /* Douradinho */
+            margin-bottom: 0.5rem;           /* Espacinho abaixo do título */
+            font-size: 1.1rem;               /* Tamanho legal */
+            display: flex;                   /* Pra alinhar perfeitamente o emoji e o texto */
+            align-items: center;             /* Alinha verticalmente no centro */
+            gap: 8px;                        /* Espacinho entre emoji e letra */
         }
 
+        /* Parágrafo dentro do card preto */
         .detail-card p {
-            font-size: 0.95rem;
-            color: #f0f0f0;
-            margin: 0;
+            font-size: 0.95rem;              /* Fonte confortável */
+            color: #f0f0f0;                  /* Quase branco */
+            margin: 0;                       /* Tira margens indesejadas */
         }
 
+        /* Letra miúda dos avisos de alergia (Lactose/Ovos/Cevada) */
         .allergy-alert {
-            font-size: 0.85rem;
-            color: var(--cor-azul-claro);
-            margin-top: 5px;
-            font-style: italic;
-            display: block;
+            font-size: 0.85rem;              /* Bem pequena */
+            color: var(--cor-azul-claro);    /* Chama a atenção com a cor azul */
+            margin-top: 5px;                 /* Fica um pouco abaixo do texto principal */
+            font-style: italic;              /* Deitadinha (aviso) */
+            display: block;                  /* Ocupa a linha toda pra quebrar a linha */
         }
 
-        /* Seção Onde Encontrar */
+        /* A grande caixa branca "Onde Encontrar" no fundo da seção do produto */
         .where-to-find {
-            background: white;
-            color: var(--cor-texto-escuro);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: white;               /* É a única coisa que tem fundo branco forte nessa seção marrom */
+            color: var(--cor-texto-escuro);  /* Letra escura já que o fundo é branco */
+            padding: 1.5rem;                 /* Gordo e chamativo */
+            border-radius: 8px;              /* Cantos curvos */
+            margin-top: 1rem;                /* Distancia um pouco das coisas de cima */
+            text-align: center;              /* Texto centralizado (no celular) */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra pesada pra destacar como um pop-up */
         }
 
         .where-to-find h4 {
-            color: var(--cor-marrom-base);
-            margin-bottom: 0.5rem;
+            color: var(--cor-marrom-base);   /* Título volta a ser marrom */
+            margin-bottom: 0.5rem;           /* Espaço embaixo */
         }
 
+        /* Botão secundário de ver o mapa */
         .where-to-find .btn-secondary {
-            background-color: var(--cor-marrom-base);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
-            border: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-top: 10px;
-            cursor: pointer;
-            width: 100%;
+            background-color: var(--cor-marrom-base); /* Fundo marrom */
+            color: white;                    /* Texto branco */
+            padding: 10px 25px;              /* Gordinho, mas menos que o botão principal (btn-cta) */
+            border-radius: 30px;             /* Pontas de pílula */
+            border: none;                    /* Sem borda */
+            font-weight: bold;               /* Negrito */
+            text-transform: uppercase;       /* Maiúsculo */
+            margin-top: 10px;                /* Afasta do texto de cima */
+            cursor: pointer;                 /* Mãozinha */
+            width: 100%;                     /* No CELULAR, o botão ocupa toda a largura do cartãozinho branco! */
         }
 
         /* --- 7. RODAPÉ --- */
         footer {
-            background-color: #2e1e0f;
-            color: var(--cor-marrom-base);
-            text-align: center;
-            padding: 3rem 1.5rem;
-            border-top: 5px solid var(--cor-dourado);
+            background-color: #2e1e0f;       /* Marrom super escuro (quase preto, cor de café) */
+            color: var(--cor-marrom-base);   /* Texto marrom normal (dá um efeito tom-sobre-tom legal) */
+            text-align: center;              /* Tudo centralizado */
+            padding: 3rem 1.5rem;            /* Muito espaço em cima e embaixo pra fechar o site */
+            border-top: 5px solid var(--cor-dourado); /* Linha final de ouro separando do site */
         }
 
-        /* --- 8. MEDIA QUERIES (AJUSTES FINAIS PARA PC) --- */
+        /* ==========================================================================
+           8. MEDIA QUERIES (A MÁGICA DA RESPONSIVIDADE)
+           ========================================================================== 
+           Tudo que entra num "@media" SÓ É APLICADO se a tela obedecer à regra ali 
+           dentro. É assim que fazemos um site mudar do PC pro Celular.
+        */
+
+        /* REGRAS PARA TELAS GRANDES (PC / TABLET DEITADO) 
+           min-width: 769px significa: "Se a tela tiver no mínimo 769 pixels de largura..." */
         @media (min-width: 769px) {
-            /* Ajustes para telas grandes */
+            
+            /* Efeito legal: a foto do fundo da capa fica parada enquanto o site rola por cima! 
+               (Desligamos isso no celular pq pesa e buga em alguns aparelhos) */
             .hero {
-                background-attachment: fixed; /* Parallax apenas no PC */
+                background-attachment: fixed; 
+                
+                /* TROCA A FOTO PARA A VERSÃO DE TABLET */
+                background-image: 
+                    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
+                    url('cerveja-rio-tablet.jpg');
             }
 
+            /* Tudo fica maior no PC */
             .hero h1 { font-size: 4.5rem; }
             .hero p { font-size: 1.8rem; }
 
-            .timeline::before { left: 50%; transform: translateX(-50%); }
+            /* A linha do tempo centraliza perfeitamente no meio da tela no PC */
+            .timeline::before { 
+                left: 50%;                     /* Empurra a linha pro exato centro horizontal */
+                transform: translateX(-50%);   /* Corrige ela no centro exato (matemática de CSS) */
+            }
             
+            /* As cartinhas da história ficam esbeltas e param de ocupar a tela toda */
             .story-card {
-                width: 45%;
-                margin: 0;
-                margin-bottom: 3rem;
+                width: 45%;                    /* Só ocupa 45% do espaço */
+                margin: 0;                     /* Tira a margem doida que usamos pro celular */
+                margin-bottom: 3rem;           /* Espaço embaixo */
             }
 
+            /* ISSO É LEGAL: As cartinhas ímpares (1, 3, 5...) vão pra ESQUERDA da linha! */
             .story-card:nth-child(odd) {
-                margin-right: auto;
-                text-align: right;
+                margin-right: auto;            /* Empurra ela pra esquerda (pois margem direita é automática) */
+                text-align: right;             /* Alinha o texto pra encostar na linha do meio */
             }
+            /* Conserta a bolinha dourada do card ímpar pra ficar na direita do card (colada na linha central) */
             .story-card:nth-child(odd)::before {
-                right: -40px;
-                left: auto;
+                right: -40px;                  /* Vai pra ponta direita */
+                left: auto;                    /* Zera a config do celular */
             }
-            /* Alinhamento do botão no card à direita */
+            /* Empurra o botão de "Ler mais" do card da esquerda pra encostar na linha */
             .story-card:nth-child(odd) .btn-expand {
-                margin-left: auto; /* Joga o botão para a direita */
+                margin-left: auto; 
             }
 
+            /* As cartinhas pares (2, 4...) vão pra DIREITA da linha! */
             .story-card:nth-child(even) {
-                margin-left: auto;
-                text-align: left;
+                margin-left: auto;             /* Empurra ela pra direita */
+                text-align: left;              /* Alinha na esquerda normal */
             }
+            /* Bolinha dourada do card par fica na esquerda (colada na linha central) */
             .story-card:nth-child(even)::before {
                 left: -40px;
             }
 
-            /* Layout PC para Produto */
+            /* Layout PC para Produto: Coloca a Foto LADO A LADO com as descrições! */
             .product-container {
-                flex-direction: row;
-                align-items: center;
-                text-align: left;
+                flex-direction: row;           /* O 'row' (linha) quebra o empilhamento vertical do celular */
+                align-items: center;           /* Centraliza foto e texto verticalmente */
+                text-align: left;              /* Alinha os textos pra esquerda e não no centro da tela */
             }
 
+            /* Ajusta a caixa da imagem pra ocupar metade do espaço */
             .product-image-container {
-                flex: 1;
-                justify-content: flex-end;
-                padding-right: 3rem;
+                flex: 1;                       /* Divide o espaço com o texto */
+                justify-content: flex-end;     /* Empurra a garrafa um pouco pro meio (já que ela tá na esquerda) */
+                padding-right: 3rem;           /* Espaço antes de começar os textos */
             }
 
+            /* Aumenta o brilho azul atrás da cerveja no PC */
             .image-glow {
                 width: 400px;
                 height: 400px;
             }
 
+            /* Ajusta a caixa de textos (Ocupa um pouquiiinho mais que a foto - flex: 1.2) */
             .product-info {
                 flex: 1.2;
-                align-items: flex-start;
+                align-items: flex-start;       /* Tudo arrumadinho à esquerda */
             }
 
+            /* A Grade de detalhes (sabor, ingredientes) agora tem DUAS colunas lado a lado! */
             .details-grid {
-                grid-template-columns: 1fr 1fr; /* Duas colunas para detalhes */
+                grid-template-columns: 1fr 1fr; /* Duas colunas do mesmo tamanho */
             }
             
-            /* Ingredientes ocupa duas colunas */
+            /* O terceiro card da grade (Ingredientes) estava ficando apertado. 
+               Isso faz ele ocupar as duas colunas inteiras como uma faixa longa! */
             .detail-card:nth-child(3) {
                 grid-column: span 2;
             }
 
+            /* O card branco "Onde encontrar" vira uma fita horizontal, com o texto na esquerda e botão na direita */
             .where-to-find {
                 text-align: left;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
+                display: flex;                 /* Coloca texto e botão na mesma linha */
+                align-items: center;           /* Alinha no meio */
+                justify-content: space-between;/* Separa os dois totalmente (um em cada ponta) */
+                width: 100%;                   /* Ocupa a base inteira */
             }
             
+            /* O botão de "Ver mapa" no PC não precisa ocupar a largura inteira */
             .where-to-find .btn-secondary {
-                width: auto;
-                margin-top: 0;
+                width: auto;                   /* Tamanho natural (ajustado ao texto) */
+                margin-top: 0;                 /* Tira a margem do topo pois não está mais empilhado */
             }
             
+            /* Lista de features volta a se comportar como bloco */
             .features-list { display: block; }
         }
 
-        /* AJUSTES PARA CELULARES MUITO PEQUENOS */
+        /* REGRAS PARA COMPUTADORES (TELAS MAIS LARGAS)
+           min-width: 1024px foca em notebooks e monitores grandes */
+        @media (min-width: 1024px) {
+            .hero {
+                /* TROCA A FOTO PARA A VERSÃO DE COMPUTADOR (FULL HD) */
+                background-image: 
+                    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
+                    url('cerveja-rio-pc.jpg');
+            }
+        }
+
+        /* REGRAS PARA CELULARES PEQUENOS (A pedido da última correção)
+           max-width: 400px significa: "Se for uma tela apertadinha igual iPhone SE ou mais antiga..." */
         @media (max-width: 400px) {
+            
+            /* Diminui o letreiro principal da capa */
             .hero h1 { font-size: 2.5rem; }
             
-            /* Mudei aqui: width: auto ou fit-content faz ele ficar do tamanho da frase */
+            /* O Botão vermelho da capa não ocupa a tela inteira (width: 100%).
+               Agora ele se adapta ao tamanho da palavra "Embarque na História" */
             .btn-cta { 
-                width: fit-content; 
-                padding: 15px 30px; /* Ajustei o preenchimento lateral */
+                width: fit-content;            /* "Ajuste ao Conteúdo" */
+                padding: 15px 30px;            /* Fica levemente menos largo pra caber numa tela super fina */
             }
             
+            /* Aperta um pouco o menu de navegação de cima */
             nav ul { gap: 10px; }
             nav a { font-size: 0.75rem; }
             
+            /* A Ficha Técnica (ABV, IBU) de 4 colunas não cabe em celular pequeno.
+               Então nós quebramos ela para 2 colunas e 2 linhas (quadrado 2x2)! */
             .tech-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr); /* Cria apenas 2 colunas */
+                gap: 20px;                     /* Espaço entre elas */
             }
         }
