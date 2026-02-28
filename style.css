@@ -591,7 +591,7 @@
                 /* TROCA A FOTO PARA A VERSÃO DE TABLET */
                 background-image: 
                     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                    url('cerveja-rio-tablet.PNG');
+                    url('cerveja-rio-tablet.png');
             }
 
             /* Tudo fica maior no PC */
@@ -699,7 +699,7 @@
                 /* TROCA A FOTO PARA A VERSÃO DE COMPUTADOR (FULL HD) */
                 background-image: 
                     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                    url('cerveja-rio-pc.PNG');
+                    url('cerveja-rio-pc.png');
             }
         }
 
@@ -728,3 +728,4 @@
                 gap: 20px;                     /* Espaço entre elas */
             }
         }
+
