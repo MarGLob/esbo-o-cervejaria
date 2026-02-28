@@ -12,8 +12,7 @@
         }
 
         .domingos {
-            height: 100px;
-
+            height: 200px;
         }
         /* --- 2. RESET E GERAL --- */
         /* O asterisco (*) seleciona TODOS os elementos do site. */
@@ -92,7 +91,7 @@
                 /* 1. Película preta semitransparente em cima da foto para dar leitura no texto */
                 linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
                 /* 2. FOTO PARA CELULAR (Esta é a padrão, pois pensamos no celular primeiro) */
-                url('cerveja-rio-mobile.jpg'), 
+                url('cerveja-rio-mobile.png'), 
                 /* 3. Uma foto da internet caso a sua não carregue (Plano B) */
                 url('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
             
@@ -307,7 +306,7 @@
         /* --- ESTILOS DO PERSONAGEM E BALÃO (INTERAÇÃO) --- */
         .personagem-container {
             display: flex;                   /* Organiza balão e personagem lado a lado */
-            align-items: flex-end;           /* Alinha eles por baixo (para o personagem ficar no chão junto com a base do balão) */
+            align-items: center;           /* Alinha eles por baixo (para o personagem ficar no chão junto com a base do balão) */
             justify-content: center;         /* Centraliza a dupla na tela */
             gap: 15px;                       /* Espaço entre balão e personagem */
             margin: 0 auto 2rem auto;        /* Centraliza a caixa inteira e dá margem embaixo */
@@ -592,7 +591,7 @@
                 /* TROCA A FOTO PARA A VERSÃO DE TABLET */
                 background-image: 
                     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                    url('cerveja-rio-tablet.jpg');
+                    url('cerveja-rio-tablet.PNG');
             }
 
             /* Tudo fica maior no PC */
@@ -700,7 +699,7 @@
                 /* TROCA A FOTO PARA A VERSÃO DE COMPUTADOR (FULL HD) */
                 background-image: 
                     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                    url('cerveja-rio-pc.jpg');
+                    url('cerveja-rio-pc.PNG');
             }
         }
 
