@@ -57,10 +57,15 @@
             <img src="domingospng.png" alt="Bandeirante Domingos" class="personagem-img domingos">
         </div>
 
-        <!-- Áudio Oculto (Tenta o m4a primeiro, depois o mp3 como garantia) -->
-        <audio id="audio-historia" preload="metadata">
-            <source src="historia.m4a" type="audio/mp4">
-            <source src="historia.mp3" type="audio/mpeg">
+        <!-- Áudios Ocultos Divididos -->
+        <audio id="audio-parte1" preload="metadata">
+            <source src="historia1.m4a" type="audio/mp4">
+            <source src="historia1.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="audio-parte2" preload="metadata">
+            <source src="historia2.m4a" type="audio/mp4">
+            <source src="historia2.mp3" type="audio/mpeg">
         </audio>
 
         <!-- CONTAINER QUE FICA ESCONDIDO -->
@@ -283,7 +288,8 @@
                         <p>Para preservar sua excelência, armazene as garrafas em pé, em local fresco e protegido da luz. Sirva entre 0°C e 4°C em copo caldereta ou pilsner para ressaltar todo o seu brilho e refrescância.</p>
                     </div>
                 </div>
-<!-- Onde Encontrar -->
+
+                <!-- Onde Encontrar -->
                 <div class="where-to-find">
                     <div>
                         <h4>📍 Onde Encontrar?</h4>
@@ -314,33 +320,55 @@
 
         <p style="font-size: 0.7rem; margin-top: 2.5rem; opacity: 0.6;">Desenvolvido por Marcelo Lobato</p>
     </footer>
+
+    <!-- SCRIPT DE ANIMAÇÃO E ÁUDIO -->
     <script>
+        // Variável para controlar qual parte do áudio está tocando
+        let parteAtualAudio = 1;
+
         // Função para tocar ou pausar o áudio
         function toggleAudio(event) {
             // Evita que o clique no botão de áudio acione o clique do balão inteiro (que abre o texto)
             event.stopPropagation(); 
             
-            const audio = document.getElementById('audio-historia');
+            const audio1 = document.getElementById('audio-parte1');
+            const audio2 = document.getElementById('audio-parte2');
             const btn = document.getElementById('btn-audio');
 
-            if (audio.paused) {
-                audio.play();
+            // Descobre qual áudio deve ser tocado agora
+            let audioAtivo = parteAtualAudio === 1 ? audio1 : audio2;
+
+            if (audioAtivo.paused) {
+                audioAtivo.play();
                 btn.innerHTML = '⏸️ Pausar áudio';
-                btn.style.backgroundColor = 'var(--cor-vermelho-cta)'; // Fica vermelho quando tocando
+                btn.style.backgroundColor = 'var(--cor-botao-cta)'; // Usando a cor elegante
             } else {
-                audio.pause();
+                audioAtivo.pause();
                 btn.innerHTML = '🔊 Ouça a história';
                 btn.style.backgroundColor = 'var(--cor-marrom-base)'; // Volta a cor original
             }
         }
 
-        // Quando o áudio terminar de tocar, volta o botão ao normal automaticamente
+        // Lógica para emendar a Parte 1 na Parte 2
         document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('audio-historia');
+            const audio1 = document.getElementById('audio-parte1');
+            const audio2 = document.getElementById('audio-parte2');
             const btn = document.getElementById('btn-audio');
             
-            if(audio) {
-                audio.addEventListener('ended', function() {
+            if(audio1 && audio2) {
+                // Quando a Parte 1 acabar:
+                audio1.addEventListener('ended', function() {
+                    parteAtualAudio = 2; // Passa a vez para a parte 2
+                    audio2.play();       // Dá o play automático na parte 2
+                    // O botão continua como "Pausar" pois a transição é direta
+                });
+
+                // Quando a Parte 2 acabar:
+                audio2.addEventListener('ended', function() {
+                    parteAtualAudio = 1; // Reseta para a parte 1 pro próximo play
+                    audio1.currentTime = 0; // Volta a "fita" da parte 1 pro começo
+                    
+                    // Volta o visual do botão ao normal
                     btn.innerHTML = '🔊 Ouça a história';
                     btn.style.backgroundColor = 'var(--cor-marrom-base)';
                 });
