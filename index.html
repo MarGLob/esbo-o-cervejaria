@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Essencial para mobile -->
     <title>Cerveja Pilar - O Gosto do Nascimento</title>
     <!-- Importando fontes elegantes para dar o tom histórico -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION (CLEAN - SEM CAIXA) -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h1>Cerveja Pilar</h1>
@@ -44,84 +44,180 @@
     <section id="historia" class="history-section">
         <h2 class="section-title">A Origem (1700-1800)</h2>
         
-        <!-- PERSONAGEM DE ABERTURA (TOPO) -->
+        <!-- PERSONAGEM DE ABERTURA COM O DOMINGOS (TOPO) -->
         <div id="personagem-abrir" class="personagem-container" onclick="toggleHistoriaGeral()">
             <div class="balao-fala">
-                <span>Psiu... Quer ouvir uma boa história sobre nossa origem? <strong>Toque aqui!</strong></span>
+                <span>Psiu... Quer conhecer nossa origem?</span>
+                <div class="acoes-balao">
+                    <span class="badge-toque">📖 Ler a história</span>
+                    <!-- O event.stopPropagation() impede que clicar no áudio abra o texto acidentalmente -->
+                    <span id="btn-audio" class="badge-toque badge-audio" onclick="toggleAudio(event)">🔊 Ouça a história</span>
+                </div>
             </div>
-            <!-- Emoji do personagem. Você pode trocar por uma tag <img> com um mascote, bandeirante ou caneco depois 
-            <div class="personagem-img">🧔🏽‍♂️</div>-->
-            <img class="domingos" src="domingospng.png">
+            <img src="domingospng.png" alt="Bandeirante Domingos" class="personagem-img domingos">
         </div>
+
+        <!-- Áudio Oculto (Tenta o m4a primeiro, depois o mp3 como garantia) -->
+        <audio id="audio-historia" preload="metadata">
+            <source src="historia.m4a" type="audio/mp4">
+            <source src="historia.mp3" type="audio/mpeg">
+        </audio>
 
         <!-- CONTAINER QUE FICA ESCONDIDO -->
         <div id="conteudo-historia" class="historia-oculta">
             <div class="timeline">
+                
                 <!-- Card 1 -->
                 <div class="story-card">
-                    <span class="year">1709</span>
-                    <h3>Os Bandeirantes</h3>
-                    <p>O início de tudo. A descoberta do ouro e o nascimento da sétima vila. Tempos de bravura.</p>
-                    
+                    <span class="year">1600/1601</span>
+                    <h3>Os Pioneiros e o Roteiro Lendário</h3>
+                    <p>O início dos relatos sobre a região surge com o bandeirante André de Leão e o minerador Wilhem Glimmer, que produziram o lendário "Roteiro de Glimmer", sob patrocínio real.</p>
                     <button class="btn-expand" onclick="toggleDetails(this)">
                         Ler mais <span class="arrow-icon">▼</span>
                     </button>
                     <div class="story-details">
-                        <p>Foi neste ano que os conflitos pela posse das minas de ouro se intensificaram. Borba Gato liderou expedições e Pitangui começou a se desenhar no mapa não apenas como um ponto de extração, mas como um centro de resistência e formação cultural.</p>
+                        <p>O início dos relatos sobre a região de Pitangui remonta aos anos de 1600 e 1601, por meio das expedições do bandeirante paulista André de Leão e do especialista em mineração, o holandês Wilhem Jost Tem Glimmer. Juntos, eles produziram o lendário "Roteiro de Glimmer", um projeto patrocinado pelo então governador-geral do Brasil, Dom Francisco de Souza.</p>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="story-card">
-                    <span class="year">1715</span>
-                    <h3>Vila de Pitangui</h3>
-                    <p>Construções coloniais desenham o horizonte e as primeiras tavernas abrem suas portas.</p>
-                    
+                    <span class="year">1695</span>
+                    <h3>As Minas do Poente e o Mistério no Sertão</h3>
+                    <p>Bartolomeu Bueno de Siqueira identifica as "Minas do Poente" seguindo a "Rota do Sol". Após o desaparecimento misterioso do líder, João Lopes Camargo estabelece-se como minerador na região.</p>
                     <button class="btn-expand" onclick="toggleDetails(this)">
                         Ler mais <span class="arrow-icon">▼</span>
                     </button>
                     <div class="story-details">
-                        <p>A elevação à categoria de Vila trouxe organização administrativa e, com ela, a prosperidade. O comércio floresceu, e as primeiras receitas locais de bebidas começaram a ser testadas pelos tropeiros que ali descansavam.</p>
+                        <p>Em 1695, relatos da importante bandeira do paulista Bartolomeu Bueno de Siqueira descrevem a região de Pitangui como as “Terras das Minas do Poente”. Localizadas ao ocidente de Sabará (atual oeste de Minas Gerais), essas terras seriam alcançadas seguindo-se a “Rota do Sol”. A expedição buscava os sertões virgens do Rio Pitangui dos Indígenas (atual Rio Pará); no entanto, seu líder desapareceu misteriosamente durante a viagem, provocando a dispersão da caravana. Anos mais tarde, João Lopes Camargo — minerador de ouro e capitão dos Auxiliares da Vila — um dos bandeirantes dessa expedição, finalmente chegou a Pitangui.</p>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="story-card">
-                    <span class="year">1780</span>
-                    <h3>Liberdade</h3>
-                    <p>O espírito de revolta surge. A terra se consolida pela força de sua gente.</p>
-                    
+                    <span class="year">1708</span>
+                    <h3>Anhanguera II e o Ouro do Rio São João</h3>
+                    <p>Bartolomeu Bueno da Silva, o Anhanguera II, inicia a primeira extração de ouro de aluvião da região nas margens do Rio São João, afluente do importante Rio Pará.</p>
                     <button class="btn-expand" onclick="toggleDetails(this)">
                         Ler mais <span class="arrow-icon">▼</span>
                     </button>
                     <div class="story-details">
-                        <p>Décadas antes da Inconfidência Mineira estourar com força total, Pitangui já mostrava sua insatisfação com a Coroa. Esse espírito livre e independente é a essência que buscamos engarrafar na Pilar.</p>
+                        <p>No ano de 1708, outro sertanista renomado, Bartolomeu Bueno da Silva — o Anhanguera II — conhecedor dos relatos anteriores, deu início à extração de ouro de aluvião. Esta foi a primeira atividade mineradora da região, realizada às margens do Rio São João (onde hoje se localiza a aldeia de São João do Pará), um dos afluentes do Rio Pará.</p>
                     </div>
                 </div>
-                
+
                 <!-- Card 4 -->
-                <div class="story-card" style="border: 2px solid var(--cor-dourado);">
-                    <span class="year">Hoje</span>
-                    <h3>Renascimento</h3>
-                    <p>A Cerveja Pilar resgata a tradição com águas locais e maltes puros.</p>
-                    
+                <div class="story-card">
+                    <span class="year">1709</span>
+                    <h3>O Batatal e a Liderança de Domingos Rodrigues</h3>
+                    <p>Surge o núcleo das Minas de Pitanguy no Morro do Batatal, famoso por pepitas gigantes. Domingos Rodrigues do Prado estabelece-se como uma força política e econômica no Arraial.</p>
                     <button class="btn-expand" onclick="toggleDetails(this)">
                         Ler mais <span class="arrow-icon">▼</span>
                     </button>
                     <div class="story-details">
-                        <p>Utilizando processos modernos mas respeitando o tempo de maturação antigo, criamos uma Lager que é uma homenagem líquida à nossa história. Saúde ao passado e ao presente!</p>
+                        <p>Em 1709, Anhanguera II transferiu suas atividades para uma nova mina: o Batatal do Pitangui. No Morro do Batatal, foram encontradas pepitas de ouro tão grandes que se assemelhavam a batatas. Ali, ele dividiu espaço com a bandeira chefiada por Antônio Rodrigues Velho (conhecido como Velho do Taipa). Nascia, assim, o núcleo das Minas do Pitanguy, ou "O Pays do Pitanguy", região mãe do Centro-Oeste mineiro e importante entreposto comercial para o que hoje conhecemos como Goiás e Triângulo Mineiro. Nessa mesma época, Domingos Rodrigues do Prado, genro de Anhanguera II e minerador paulista, mudou-se para a região, exercendo grande liderança econômica e política no Arraial de Pitangui.</p>
                     </div>
                 </div>
+
+                <!-- Card 5 -->
+                <div class="story-card">
+                    <span class="year">1710</span>
+                    <h3>Conflitos de Identidade e a Fuga do Fisco</h3>
+                    <p>O fim da Guerra dos Emboabas e o controle da Coroa aumentam o povoamento. Paulistas buscam liberdade financeira e impõem restrições aos portugueses (reinóis), iniciando contendas governamentais.</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Em 1710, com o término da Guerra dos Emboabas (1707-1709), a criação da Capitania de São Paulo e das Minas do Ouro, e o ferrenho controle da Coroa Portuguesa sobre a exploração aurífera, o povoamento no Arraial do Pitanguy cresceu aceleradamente. Fugindo do controle tributário de Portugal em busca de maior liberdade financeira, os bandeirantes paulistas do Arraial impuseram restrições à presença de reinóis (bandeirantes portugueses ou emboabas), desencadeando contendas diretas com o Governo Geral.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="story-card">
+                    <span class="year">1711 a 1713</span>
+                    <h3>A Ineficácia do Controle Colonial</h3>
+                    <p>A Coroa tenta, sem sucesso, conter a desobediência administrativa e financeira dos potentados locais por meio de decretos, ameaças e cobranças oficiais do imposto do "Quinto".</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Entre 1711 e 1713, após inúmeros episódios de desobediência administrativa e financeira às ordens superiores pelos potentados do "Pays do Pitanguy", a Coroa Portuguesa buscou resolver as contendas. Utilizou-se de decretos, nomeações de autoridades, cobranças oficiais do "quinto" na exploração do ouro, retaliações administrativas e a ameaça de estabelecer uma casa de fundição. No entanto, todas essas ações mostraram-se ineficazes na tentativa de obter o controle real sobre o Arraial.</p>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="story-card">
+                    <span class="year">1714/1715</span>
+                    <h3>O Nascimento da Sétima Vila do Ouro</h3>
+                    <p>Sob liderança de Domingos Rodrigues do Prado, é criada a Sétima Vila: Nossa Senhora da Piedade de Pitanguy, padroeira dos paulistas, garantindo maior autonomia política aos moradores.</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Nos anos de 1714 e 1715, foi nomeada a primeira Junta Administrativa do Pitanguy, composta por influentes líderes locais sob o comando de Domingos Rodrigues do Prado. Essa concessão do Governo da Capitania ocorreu sob promessas de obediência e o pagamento parcial das dívidas com o Fisco Real. Ao protelar o controle administrativo da Coroa e esquivar-se da gana tributária de Sabará, a junta obteve, em 9 de junho de 1715, a criação da Sétima Vila da Capitania: a Vila de Nossa Senhora da Piedade de Pitanguy, com outorga de Câmara Municipal e amplos poderes locais. A padroeira, Nossa Senhora da Piedade, representava a fé da maioria paulista na sociedade da época.</p>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="story-card">
+                    <span class="year">1716</span>
+                    <h3>"Quem Pagar, Morre!": O Desafio à Majestade</h3>
+                    <p>O Capitão-Mor Domingos Rodrigues intensifica a resistência, proibindo o pagamento de impostos sob pena de morte. O período é marcado por violência e expulsão de autoridades portuguesas.</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Sob a liderança de Domingos Rodrigues do Prado — minerador, bandeirante paulista e Capitão-Mor da Vila — as transgressões às ordens da Coroa persistiam em 1716, incluindo a ocultação de minas e a proibição do pagamento dos "quintos". Foi publicado um decreto local, conhecido como "bando", que continha uma ameaça direta aos moradores: “quem pagar, morre!”. Além disso, o período foi marcado por assassinatos, perseguições e a expulsão sistemática de autoridades e cobradores de impostos enviados pelo governo.</p>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="story-card">
+                    <span class="year">1719</span>
+                    <h3>O Levante da Cachaça e a Vitória Popular</h3>
+                    <p>A população, liderada por Domingos Rodrigues, rebela-se contra a tentativa de taxação da cachaça, produto vital para a economia local. O motim armado resulta em vitória local.</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Em 1719, ocorreu o histórico "Levante da Cachaça". Além do ouro, a Coroa Portuguesa tentou instituir impostos sobre a produção e comercialização da cachaça local através do "estanco" (contrato) da bebida. Domingos Rodrigues do Prado liderou o povo em um motim armado contra a taxação deste produto, considerado gênero de primeira necessidade e fonte essencial de recursos. Nessa rebelião, a união da comunidade saiu vitoriosa.</p>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="story-card">
+                    <span class="year">1720</span>
+                    <h3>A Batalha do Rio São João e a Repressão</h3>
+                    <p>O Conde de Assumar envia 500 soldados para sufocar a rebeldia. Após a derrota no Rio São João, os insurgentes fogem para diversas regiões, marcando o fim do domínio paulista.</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>Em 1720, o Conde de Assumar, Dom Pedro de Almeida, governador da capitania, enviou uma expedição militar com 500 homens — incluindo 23 Dragões da tropa de elite — para encerrar as insubordinações em Pitanguy e evitar que o exemplo de rebeldia se espalhasse. A Batalha do Rio São João, travada entre soldados da Coroa e cerca de 400 insurgentes (incluindo índios e escravos sob pena de morte), resultou na derrota dos mineradores paulistas. Na fuga, alojaram-se no Arraial da Conceição (atual Santuário de Conceição do Pará) e, posteriormente, debandaram para São Paulo, Cuiabá, Piunhi, Curral Del Rei e Goiás.</p>
+                    </div>
+                </div>
+
+                <!-- Card 11 (Final/Destaque Dourado) -->
+                <div class="story-card" style="border: 2px solid var(--cor-dourado);">
+                    <span class="year">1721</span>
+                    <h3>Pilar: O Símbolo da Submissão e Fé</h3>
+                    <p>Bandeirantes portugueses assumem o poder sob proteção militar. O nome da vila é alterado para Nossa Senhora do Pilar de Pitanguy, alinhando-a à padroeira dos portugueses e das vilas auríferas.</p>
+                    <button class="btn-expand" onclick="toggleDetails(this)">
+                        Ler mais <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="story-details">
+                        <p>A partir de 1721, os bandeirantes portugueses (emboabas) assumiram a administração local, protegidos temporariamente por 200 militares para manter a vila subjugada e facilitar a coleta de tributos. Como a ordem socioeconômica costuma interferir na religiosa, o nome da vila foi alterado para Vila de Nossa Senhora do Pilar de Pitanguy, em homenagem à padroeira dos portugueses. Essa mudança também promovia um alinhamento institucional com outras importantes vilas auríferas, como Ouro Preto e Sabará, que estavam sob a mesma proteção.</p>
+                    </div>
+                </div>
+
             </div> <!-- FIM DA TIMELINE -->
 
-            <!-- PERSONAGEM DE FECHAMENTO (BASE) -->
+            <!-- PERSONAGEM DE FECHAMENTO COM O DOMINGOS (BASE) -->
             <div class="personagem-container" onclick="toggleHistoriaGeral()" style="margin-top: 4rem;">
                 <div class="balao-fala" style="border-bottom-right-radius: 20px; border-bottom-left-radius: 0;">
-                    <span>História incrível, né? Para guardar o pergaminho, <strong>toque aqui.</strong></span>
+                    <span>História incrível, né? Para guardar o pergaminho,<br><span class="badge-toque">👇 Fechar</span></span>
                 </div>
-                <!-- Emoji invertido para ele 'olhar' para a história 
-                <div class="personagem-img" style="transform: scaleX(-1);">🧔🏽‍♂️</div> -->
-                <img class="domingos" src="domingospng.png">
+                <img src="domingospng.png" alt="Bandeirante Domingos" class="personagem-img domingos" style="transform: scaleX(-1);">
             </div>
 
         </div> <!-- FIM DO CONTAINER OCULTO -->
@@ -134,10 +230,8 @@
             <!-- Lado Esquerdo: Imagem da Cerveja -->
             <div class="product-image-container">
                 <div class="image-glow"></div>
-                <!-- Imagem Principal - Use sua foto aqui -->
-                <!-- Use o nome em MINÚSCULO no GitHub e adicione o ?v=3 para forçar atualização no celular -->
-                <img src="cerveja-frente.jpg?v=3" alt="Garrafa Cerveja Pilar Puro Malte" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <!-- Fallback se a imagem não carregar -->
+                <!-- Extensão alterada com sucesso para .png conforme solicitado -->
+                <img src="cerveja-frente.png?v=4" alt="Garrafa Cerveja Pilar Puro Malte" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="beer-img-placeholder" style="display:none; font-size: 8rem; position: relative; z-index: 2;">🍺</div>
             </div>
 
@@ -147,7 +241,7 @@
                 <h2 class="product-title">Pilar Pilsen</h2>
                 <p class="product-subtitle">Uma cerveja que carrega a história de Pitangui. Leve, dourada e equilibrada.</p>
 
-                <!-- Ficha Técnica (Grid) -->
+                <!-- Ficha Técnica -->
                 <div class="tech-grid">
                     <div class="tech-item">
                         <span class="tech-label">Estilo</span>
@@ -167,31 +261,29 @@
                     </div>
                 </div>
 
-                <!-- Detalhes do Produto -->
+                <!-- Detalhes do Produto Refinados -->
                 <div class="details-grid">
                     <div class="detail-card">
                         <h4>👅 Notas de Sabor</h4>
-                        <p>Refrescante com notas sutis de cereais e um leve amargor equilibrado. Final seco e crisp, ideal para dias quentes.</p>
+                        <p>Uma experiência refrescante e sofisticada. Apresenta notas sutis de cereais nobres, um leve toque floral do lúpulo e um amargor perfeitamente equilibrado. O final é seco, limpo e convida ao próximo gole.</p>
                     </div>
 
                     <div class="detail-card">
                         <h4>🥘 Harmonização</h4>
-                        <p>Perfeita com petiscos de boteco, queijos leves (minas, mussarela), frango grelhado, peixes e amendoim.</p>
+                        <p>Extremamente versátil, acompanha com maestria a autêntica culinária mineira. Ideal para harmonizar com queijos curados, frango a passarinho, peixes fritos e os clássicos petiscos de boteco.</p>
                     </div>
 
                     <div class="detail-card">
-                        <h4>🌾 Ingredientes & Alergênicos</h4>
-                        <p>Água, Malte de Cevada e Lúpulo.</p>
-                        <span class="allergy-alert">*Contém Cevada. Não contém lactose. Não contém ovos.</span>
+                        <h4>🌾 Ingredientes</h4>
+                        <p>Produzida sob os mais rigorosos padrões de qualidade utilizando apenas Água, Malte de Cevada e Lúpulo.</p>
                     </div>
 
                     <div class="detail-card">
                         <h4>✨ Boas Práticas</h4>
-                        <p>Armazenar em local fresco, ao abrigo da luz e calor. Servir bem gelada para ressaltar a refrescância.</p>
+                        <p>Para preservar sua excelência, armazene as garrafas em pé, em local fresco e protegido da luz. Sirva entre 0°C e 4°C em copo caldereta ou pilsner para ressaltar todo o seu brilho e refrescância.</p>
                     </div>
                 </div>
-
-                <!-- Onde Encontrar -->
+<!-- Onde Encontrar -->
                 <div class="where-to-find">
                     <div>
                         <h4>📍 Onde Encontrar?</h4>
@@ -207,15 +299,54 @@
     <footer id="contato">
         <h3 style="color: var(--cor-dourado); margin-bottom: 0.5rem;">Cerveja Pilar</h3>
         <p>Pitangui - MG</p>
-        <div class="social-links" style="margin-top: 1.5rem;">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
+        
+        <div class="social-links" style="margin-top: 1.5rem; display: flex; justify-content: center;">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <!-- Ícone SVG do Instagram -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                </svg>
+                Instagram
+            </a>
         </div>
-        <p style="font-size: 0.7rem; margin-top: 2rem; opacity: 0.6;">&copy; 2024 Cervejaria Pilar.</p>
-    </footer>
 
-    <!-- SCRIPT DE ANIMAÇÃO -->
+        <p style="font-size: 0.7rem; margin-top: 2.5rem; opacity: 0.6;">Desenvolvido por Marcelo Lobato</p>
+    </footer>
     <script>
+        // Função para tocar ou pausar o áudio
+        function toggleAudio(event) {
+            // Evita que o clique no botão de áudio acione o clique do balão inteiro (que abre o texto)
+            event.stopPropagation(); 
+            
+            const audio = document.getElementById('audio-historia');
+            const btn = document.getElementById('btn-audio');
+
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = '⏸️ Pausar áudio';
+                btn.style.backgroundColor = 'var(--cor-vermelho-cta)'; // Fica vermelho quando tocando
+            } else {
+                audio.pause();
+                btn.innerHTML = '🔊 Ouça a história';
+                btn.style.backgroundColor = 'var(--cor-marrom-base)'; // Volta a cor original
+            }
+        }
+
+        // Quando o áudio terminar de tocar, volta o botão ao normal automaticamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('audio-historia');
+            const btn = document.getElementById('btn-audio');
+            
+            if(audio) {
+                audio.addEventListener('ended', function() {
+                    btn.innerHTML = '🔊 Ouça a história';
+                    btn.style.backgroundColor = 'var(--cor-marrom-base)';
+                });
+            }
+        });
+
         // Função para esconder ou mostrar a história inteira
         function toggleHistoriaGeral() {
             const conteudo = document.getElementById('conteudo-historia');
@@ -233,7 +364,7 @@
                 conteudo.classList.add('historia-oculta');
                 // Mostra o personagem do topo novamente
                 personagemAbrir.style.display = 'flex';
-                // Leva a pessoa de volta pro título da história (melhora a experiência no celular)
+                // Leva a pessoa de volta pro título da história
                 document.getElementById('historia').scrollIntoView({ behavior: 'smooth' });
             }
         }
@@ -242,10 +373,8 @@
         function toggleDetails(button) {
             const card = button.closest('.story-card');
             
-            // Alterna a classe 'expanded' no card pai
             card.classList.toggle('expanded');
             
-            // Verifica se está expandido para mudar o texto do botão
             if (card.classList.contains('expanded')) {
                 button.innerHTML = 'Ler menos <span class="arrow-icon">▼</span>';
             } else {
